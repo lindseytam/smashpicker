@@ -2,8 +2,10 @@ import { initializeApp } from 'firebase/app'
 import { getDatabase, ref, onValue } from 'firebase/database'
 require('dotenv').config()
 
-function FirebaseConnector () {
+const FirebaseConnector = () => {
+  
   let charData
+  let categoryData
 
   const config = {
     apiKey: process.env.REACT_APP_APIKEY,
@@ -19,19 +21,24 @@ function FirebaseConnector () {
   const app = initializeApp(config)
   const db = getDatabase()
 
-  const getData = (path) => {
-    const starCountRef = ref(db, path)
-    onValue(starCountRef, (snapshot) => {
-      charData = snapshot.val()
-      // console.log("charData=", charData)
-    })
+  const getCharData = () => {
+    const data = ref(db, 'chars')
+    onValue(data, (snapshot) => {  charData = snapshot.val() })
   }
 
-  getData('chars')
+  const getTagData = () => {
+    const data = ref(db, 'tags')
+    onValue(data, (snapshot) => { categoryData = snapshot.val() })
+  }
+
+  getCharData()
+  getTagData()
 
   return (
     <div>
-        {/* { JSON.stringify(charData) } */}
+        { JSON.stringify(charData) }
+        <br/>   <br/>   <br/>
+        { JSON.stringify(categoryData) }
     </div>
   )
 }
