@@ -1,4 +1,3 @@
-import { Button as BSButton } from 'react-bootstrap'
 import React from 'react'
 import PropTypes from 'prop-types'
 
