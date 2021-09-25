@@ -1,9 +1,10 @@
-import logo from "./logo.svg";
-import "./styles/App.css";
+import logo from './logo.svg'
+import './styles/App.css'
+import FirebaseConnector from './FirebaseConnector/FirebaseConnector'
 
-import Button from "./Button";
+import Button from './Button'
 
-function App() {
+function App () {
   return (
     <div className="App">
       <header className="App-header">
@@ -16,6 +17,7 @@ function App() {
         >
           Generate
         </Button>
+        <FirebaseConnector />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -29,7 +31,7 @@ function App() {
         </a>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
