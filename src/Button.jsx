@@ -2,17 +2,17 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 function Button (props) {
-  const { color, className, onClick } = props
+  const { children, color, className, onClick } = props
 
   return (
-    <a onClick={onClick} className={`${className} button-${color} button parallelogram`} href="#">
-      <span className={'button-text'}>{props.children}</span>
-    </a>
+    <button onClick={onClick} className={`${className} button-${color} button parallelogram`} href="#">
+      <span>{children}</span>
+    </button>
   )
 }
 
 function DropdownButton (props) {
-  const { color, className, options, onChange } = props
+  const { children, color, className, options, onChange } = props
 
   const [open, setOpen] = useState(false)
 
@@ -24,7 +24,7 @@ function DropdownButton (props) {
     <div className='button-container'>
       <button className={`${className} dropdown-button button-${color} button parallelogram`}>
         <span onClick={toggleMenu}>
-          {props.children}
+          {children}
         </span>
       </button>
         {open &&
@@ -36,8 +36,7 @@ function DropdownButton (props) {
 }
 
 function ToggleButton (props) {
-  const { color, className, onChange } = props
-
+  const { children } = props
   const [enabled, setEnabled] = useState(true)
 
   const toggleButton = () => {
@@ -45,21 +44,21 @@ function ToggleButton (props) {
   }
 
   return (
-      <button className={`${className} dropdown-button button-${enabled ? 'green' : 'red'} button parallelogram`}>
-        <span onClick={toggleButton}>
-          {props.children}
+      <button onClick={toggleButton} className={`dropdown-button button-${enabled ? 'green' : 'red'} button parallelogram`}>
+        <span>
+          {children}
         </span>
       </button>)
 }
 
 const basePropTypes = {
   color: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
+  children: PropTypes.any
 }
 
 const buttonPropTypes = {
-  ...basePropTypes,
-  children: PropTypes.any
+  ...basePropTypes
 }
 
 const dropdownPropTypes = {
@@ -68,7 +67,12 @@ const dropdownPropTypes = {
   onChange: PropTypes.func
 }
 
+const togglePropTypes = {
+  children: basePropTypes.children
+}
+
 Button.propTypes = buttonPropTypes
 DropdownButton.propTypes = dropdownPropTypes
+ToggleButton.propTypes = togglePropTypes
 
 export { DropdownButton, Button, ToggleButton }
