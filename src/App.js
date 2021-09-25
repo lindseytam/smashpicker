@@ -1,21 +1,18 @@
-import logo from "./logo.svg";
-import "./styles/App.css";
+import logo from './logo.svg'
+import './styles/App.css'
 
-import Button from "./Button";
+import { DropdownButton, Button } from './Button'
 
-function App() {
+function App () {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1 className="outline">Smash Picker</h1>
-        <Button
-          className="uppercase"
-          textColor="black"
-          backgroundColor="golden"
-        >
+        <Button className="uppercase extrabold" color="golden">
           Generate
         </Button>
+        <DropdownButton options={['1', '2', '3']} onChange={s => console.log(s.target.value)}/>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -29,7 +26,7 @@ function App() {
         </a>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
