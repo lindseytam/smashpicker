@@ -3,7 +3,6 @@ import { getDatabase, ref, onValue } from 'firebase/database'
 require('dotenv').config()
 
 const FirebaseConnector = () => {
-  
   let charData
   let categoryData
 
@@ -18,12 +17,12 @@ const FirebaseConnector = () => {
     measurementId: process.env.REACT_APP_MEASUREMENTID
   }
 
-  const app = initializeApp(config)
+  initializeApp(config)
   const db = getDatabase()
 
   const getCharData = () => {
     const data = ref(db, 'chars')
-    onValue(data, (snapshot) => {  charData = snapshot.val() })
+    onValue(data, (snapshot) => { charData = snapshot.val() })
   }
 
   const getTagData = () => {
