@@ -19,7 +19,8 @@ function SelectionScreen (props) {
   }
 
   return (
-    <div>
+
+    <div style={{ display: 'inline' }}>
         <DropdownButton name="playersDropdown" activeDropdown={activeDropdown === 'playersDropdown'} setActiveDropdown={setActiveDropdown} options={['1 Player', '2 Players', '3 Players', '4 Players', '5 Players', '6 Players', '7 Players', '8 Players']} onChange={playersOnSelect}>
           {`${numPlayers} ${numPlayers > 1 ? 'Players' : 'Player'}`}
         </DropdownButton>

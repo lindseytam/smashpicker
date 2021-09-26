@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Background from './components/Background'
 import SelectionScreen from './pages/SelectionScreen'
 import ResultScreen from './pages/ResultScreen'
 
@@ -14,17 +15,22 @@ function AppComponent (props) {
 
   if (onSelectionScreen) {
     return (
-    <SelectionScreen
-      numPlayers={numPlayers}
-      theme={theme}
-      unique={unique}
-      setOnSelectionScreen={setOnSelectionScreen}
-      setNumPlayers={setNumPlayers}
-      setTheme={setTheme}
-      setUnique={setUnique}
-    />)
+    <Background>
+      <SelectionScreen
+        numPlayers={numPlayers}
+        theme={theme}
+        unique={unique}
+        setOnSelectionScreen={setOnSelectionScreen}
+        setNumPlayers={setNumPlayers}
+        setTheme={setTheme}
+        setUnique={setUnique}
+      />
+    </Background>)
   } else {
-    return <ResultScreen numPlayers={numPlayers} theme={theme} unique={unique}/>
+    return (
+    <Background>
+      <ResultScreen numPlayers={numPlayers} theme={theme} unique={unique}/>
+    </Background>)
   }
 }
 
