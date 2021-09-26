@@ -156,6 +156,8 @@ h1 {
   overflow: auto;
   z-index: 1;
   box-shadow: -0.1em 0.1em 0 var(--black);
+  border-radius: .2rem;
+  border: 0.2em solid var(--black);
 }
 
 .dropdown-content .dropdown-element {

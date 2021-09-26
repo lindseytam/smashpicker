@@ -12,12 +12,17 @@ function Button (props) {
 }
 
 function DropdownButton (props) {
-  const { children, color, className, options, onChange } = props
+  const { name, activeDropdown, setActiveDropdown, children, color, className, options, onChange } = props
 
-  const [open, setOpen] = useState(false)
+  // const [open, setOpen] = useState(false)
 
   const toggleMenu = () => {
-    setOpen(!open)
+    // setOpen(!open)
+    if (activeDropdown) {
+      setActiveDropdown(null)
+    } else {
+      setActiveDropdown(name)
+    }
   }
 
   return (
@@ -27,7 +32,7 @@ function DropdownButton (props) {
           {children}
         </span>
       </button>
-        {open &&
+        {activeDropdown &&
             <div className="dropdown-content drop-shadow">
               {options.map(e => <a className="dropdown-element" onClick={e => onChange(e.target.text)} value={e} key={e}>{e}</a>)}
             </div>
