@@ -5,7 +5,7 @@ function Button (props) {
   const { children, color, className, onClick } = props
 
   return (
-    <button onClick={onClick} className={`${className} button-${color} button parallelogram`} href="#">
+    <button onClick={onClick} className={`${className} button-${color} button drop-shadow parallelogram`} href="#">
       <span>{children}</span>
     </button>
   )
@@ -22,29 +22,30 @@ function DropdownButton (props) {
 
   return (
     <div className='button-container'>
-      <button className={`${className} dropdown-button button-${color} button parallelogram`}>
-        <span onClick={toggleMenu}>
+      <button onClick={toggleMenu} className={`${className} dropdown-button button-${color} button drop-shadow parallelogram`}>
+        <span>
           {children}
         </span>
       </button>
         {open &&
-            <div className="dropdown-content">
-              {options.map(e => <a onClick={e => onChange(e.target.text)} value={e} key={e}>{e}</a>)}
+            <div className="dropdown-content drop-shadow">
+              {options.map(e => <a className="dropdown-element" onClick={e => onChange(e.target.text)} value={e} key={e}>{e}</a>)}
             </div>
         }
   </div>)
 }
 
 function ToggleButton (props) {
-  const { children } = props
-  const [enabled, setEnabled] = useState(true)
+  const { children, curVal, toggleVal } = props
+  const [enabled, setEnabled] = useState(curVal)
 
   const toggleButton = () => {
     setEnabled(!enabled)
+    toggleVal()
   }
 
   return (
-      <button onClick={toggleButton} className={`dropdown-button button-${enabled ? 'green' : 'red'} button parallelogram`}>
+      <button onClick={toggleButton} className={`dropdown-button button-${enabled ? 'green' : 'red'} button drop-shadow parallelogram`}>
         <span>
           {children}
         </span>
@@ -68,7 +69,9 @@ const dropdownPropTypes = {
 }
 
 const togglePropTypes = {
-  children: basePropTypes.children
+  children: basePropTypes.children,
+  curVal: PropTypes.bool,
+  toggleVal: PropTypes.func
 }
 
 Button.propTypes = buttonPropTypes
