@@ -183,7 +183,7 @@ h1 {
   transform: translateY(-50%);
   border-top: 2vh solid var(--black);
   border-bottom: 2vh solid var(--black);
-  background-color: var(--white);
+  background: linear-gradient(90deg, #EE9D23 0%, #E40505 100%);
 }
 
 #app-background #background-img {
