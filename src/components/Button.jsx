@@ -5,7 +5,7 @@ function Button (props) {
   const { children, color, className, onClick } = props
 
   return (
-    <button onClick={onClick} className={`${className} button-${color} button drop-shadow parallelogram`} href="#">
+    <button style={{ display: 'inline' }} onClick={onClick} className={`${className} button-${color} button drop-shadow parallelogram`}>
       <span>{children}</span>
     </button>
   )
@@ -14,10 +14,7 @@ function Button (props) {
 function DropdownButton (props) {
   const { name, activeDropdown, setActiveDropdown, children, color, className, options, onChange } = props
 
-  // const [open, setOpen] = useState(false)
-
   const toggleMenu = () => {
-    // setOpen(!open)
     if (activeDropdown) {
       setActiveDropdown(null)
     } else {
@@ -26,7 +23,7 @@ function DropdownButton (props) {
   }
 
   return (
-    <div className='button-container'>
+    <div style={{ display: 'inline', position: 'relative' }} className='button-container'>
       <button onClick={toggleMenu} className={`${className} dropdown-button button-${color} button drop-shadow parallelogram`}>
         <span>
           {children}
@@ -50,7 +47,7 @@ function ToggleButton (props) {
   }
 
   return (
-      <button onClick={toggleButton} className={`dropdown-button button-${enabled ? 'green' : 'red'} button drop-shadow parallelogram`}>
+      <button style={{ display: 'inline' }} onClick={toggleButton} className={`dropdown-button button-${enabled ? 'green' : 'red'} button drop-shadow parallelogram`}>
         <span>
           {children}
         </span>
