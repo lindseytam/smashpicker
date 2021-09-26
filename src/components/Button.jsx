@@ -5,7 +5,7 @@ function Button (props) {
   const { children, color, className, onClick } = props
 
   return (
-    <button style={{ display: 'inline' }} onClick={onClick} className={`${className} button-${color} button drop-shadow parallelogram`}>
+    <button style={{ display: 'inline' }} onClick={onClick} className={`${className} button-${color} button bordered drop-shadow parallelogram`}>
       <span>{children}</span>
     </button>
   )
@@ -24,16 +24,14 @@ function DropdownButton (props) {
 
   return (
     <div style={{ display: 'inline', position: 'relative' }} className='button-container'>
-      <button onClick={toggleMenu} className={`${className} dropdown-button button-${color} button drop-shadow parallelogram`}>
+      <button onClick={toggleMenu} className={`${className} dropdown-button button-${color} button bordered drop-shadow parallelogram`}>
         <span>
           {children}
         </span>
       </button>
-        {activeDropdown &&
-            <div className="dropdown-content drop-shadow">
-              {options.map(e => <a className="dropdown-element" onClick={e => onChange(e.target.text)} value={e} key={e}>{e}</a>)}
-            </div>
-        }
+      <div className={`dropdown-content ${activeDropdown ? 'bordered' : ''} drop-shadow`} style={{ height: activeDropdown ? 'auto' : '0', maxHeight: activeDropdown ? '100vh' : '0' }}>
+        {options.map(e => <a className="dropdown-element" onClick={e => onChange(e.target.text)} value={e} key={e}>{e}</a>)}
+      </div>
   </div>)
 }
 
@@ -47,7 +45,7 @@ function ToggleButton (props) {
   }
 
   return (
-      <button style={{ display: 'inline' }} onClick={toggleButton} className={`dropdown-button button-${enabled ? 'green' : 'red'} button drop-shadow parallelogram`}>
+      <button style={{ display: 'inline' }} onClick={toggleButton} className={`dropdown-button button-${enabled ? 'green' : 'red'} button bordered drop-shadow parallelogram`}>
         <span>
           {children}
         </span>
