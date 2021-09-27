@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 import { DropdownButton, Button, ToggleButton } from '../components/Button'
+import CharactersGrid from '../components/CharactersGrid'
 
 function SelectionScreen (props) {
-  const { theme, numPlayers, unique, setOnSelectionScreen, setNumPlayers, setTheme, setUnique } = props
+  const { theme, numPlayers, unique, setOnSelectionScreen, setNumPlayers, setTheme, setUnique, charData, tagData } = props
   const [activeDropdown, setActiveDropdown] = useState(null)
 
   const playersOnSelect = (val) => {
@@ -32,6 +33,7 @@ function SelectionScreen (props) {
         </div>
 
         {/* Character selection */}
+        <CharactersGrid charData={charData} tagData={tagData}/>
 
         <Button
           className="uppercase extrabold italic"

@@ -1,10 +1,11 @@
+import { useEffect } from 'react'
 import { initializeApp } from 'firebase/app'
 import { getDatabase, ref, onValue } from 'firebase/database'
 require('dotenv').config()
 
-const FirebaseConnector = () => {
-  let charData
-  let categoryData
+const FirebaseConnector = (props) => {
+  const { setTagData, setCharData } = props
+  let initialize = false
 
   const config = {
     apiKey: process.env.REACT_APP_APIKEY,
@@ -22,24 +23,25 @@ const FirebaseConnector = () => {
 
   const getCharData = () => {
     const data = ref(db, 'chars')
-    onValue(data, (snapshot) => { charData = snapshot.val() })
+    onValue(data, (snapshot) => {
+      setCharData([snapshot.val()])
+    })
   }
 
   const getTagData = () => {
     const data = ref(db, 'tags')
-    onValue(data, (snapshot) => { categoryData = snapshot.val() })
+    onValue(data, (snapshot) => {
+      setTagData([snapshot.val()])
+    })
   }
 
-  getCharData()
-  getTagData()
+  initialize = true
+  useEffect(() => {
+    getCharData()
+    getTagData()
+  }, [initialize])
 
-  return (
-    <div>
-        { JSON.stringify(charData) }
-        <br/>   <br/>   <br/>
-        { JSON.stringify(categoryData) }
-    </div>
-  )
+  return null
 }
 
 export default FirebaseConnector
