@@ -1,10 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './styles/index.css'
-
 import AppComponent from './AppComponent'
-import FirebaseConnector from './FirebaseConnector/FirebaseConnector'
-
 import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(
@@ -12,8 +9,6 @@ ReactDOM.render(
     <header className="App-header">
       <h1 className="outline" style={{ margin: '.2em' }}>Smash Picker</h1>
     </header>
-    <FirebaseConnector />
-
     <AppComponent />
   </React.StrictMode>,
   document.getElementById('root')
