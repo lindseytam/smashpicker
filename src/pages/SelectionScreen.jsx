@@ -3,10 +3,12 @@ import PropTypes from 'prop-types'
 
 import { DropdownButton, Button, ToggleButton } from '../components/Button'
 import CharactersGrid from '../components/CharactersGrid'
+import SplashScreen from './SplashScreen'
 
 function SelectionScreen (props) {
   const { theme, numPlayers, unique, setOnSelectionScreen, setNumPlayers, setTheme, setUnique, charData, tagData } = props
   const [activeDropdown, setActiveDropdown] = useState(null)
+  const [loaded, setLoaded] = useState(false)
 
   const playersOnSelect = (val) => {
     const numPlayers = parseInt(val.split(' ')[0])
@@ -21,7 +23,8 @@ function SelectionScreen (props) {
 
   return (
     <div id="selection-panel" className="parallelogram bordered drop-shadow center">
-      <div className="panel-contents" style={{ height: '40rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center' }}>
+      {!loaded && <SplashScreen/>}
+      <div className="panel-contents" style={{ display: loaded ? 'flex' : 'none', height: '40rem', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center' }}>
         <div id="button-bar">
           <DropdownButton name="playersDropdown" activeDropdown={activeDropdown === 'playersDropdown'} setActiveDropdown={setActiveDropdown} options={['1 Player', '2 Players', '3 Players', '4 Players', '5 Players', '6 Players', '7 Players', '8 Players']} onChange={playersOnSelect}>
             {`${numPlayers} ${numPlayers > 1 ? 'Players' : 'Player'}`}
@@ -32,7 +35,7 @@ function SelectionScreen (props) {
           <ToggleButton curVal={unique} toggleVal={() => setUnique(!unique)}>{unique ? 'Unique' : 'Not Unique'}</ToggleButton>
         </div>
 
-        <CharactersGrid charData={charData} tagData={tagData}/>
+        <CharactersGrid charData={charData} tagData={tagData} setLoaded={setLoaded}/>
 
         <Button
           className="uppercase extrabold italic"

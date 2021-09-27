@@ -9,41 +9,47 @@ function AppComponent (props) {
   const [numPlayers, setNumPlayers] = useState(4)
   const [theme, setTheme] = useState('All Characters')
   const [unique, setUnique] = useState(true)
-  const [charData, setcharData] = useState([])
+  const [charData, setCharData] = useState([])
   const [tagData, setTagData] = useState([])
 
   const handleCharChange = (event) => {
-    setcharData(event)
+    setCharData(event)
   }
   const handleTagChange = (event) => {
     setTagData(event)
   }
 
+  console.log(charData)
+  console.log(tagData)
+
+  let content = null
+
   if (onSelectionScreen) {
-    return (
-      <Background>
-        <FirebaseConnector
-          setCharData={handleCharChange}
-          setTagData={handleTagChange}
-        />
-        <SelectionScreen
-          numPlayers={numPlayers}
-          theme={theme}
-          unique={unique}
-          setOnSelectionScreen={setOnSelectionScreen}
-          setNumPlayers={setNumPlayers}
-          setTheme={setTheme}
-          setUnique={setUnique}
-          charData={charData}
-          tagData={tagData}
-        />
-      </Background>)
+    content = (
+    <React.Fragment>
+      <FirebaseConnector
+        setCharData={handleCharChange}
+        setTagData={handleTagChange}
+      />
+      <SelectionScreen
+        numPlayers={numPlayers}
+        theme={theme}
+        unique={unique}
+        setOnSelectionScreen={setOnSelectionScreen}
+        setNumPlayers={setNumPlayers}
+        setTheme={setTheme}
+        setUnique={setUnique}
+        charData={charData}
+        tagData={tagData}
+      />
+    </React.Fragment>)
   } else {
-    return (
-    <Background>
-      <ResultScreen numPlayers={numPlayers} theme={theme} unique={unique}/>
-    </Background>)
+    content = <ResultScreen numPlayers={numPlayers} theme={theme} unique={unique}/>
   }
+  return (
+  <Background>
+    {content}
+  </Background>)
 }
 
 export default AppComponent
