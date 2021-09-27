@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 function CharactersGrid (props) {
   const { charData, tagData } = props
@@ -16,6 +17,11 @@ function CharactersGrid (props) {
        {data.map((item) => renderImg(item))}
     </div>
   )
+}
+
+CharactersGrid.propTypes = {
+  charData: PropTypes.array,
+  tagData: PropTypes.array
 }
 
 export default CharactersGrid

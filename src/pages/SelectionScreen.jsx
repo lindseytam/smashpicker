@@ -32,7 +32,6 @@ function SelectionScreen (props) {
           <ToggleButton curVal={unique} toggleVal={() => setUnique(!unique)}>{unique ? 'Unique' : 'Not Unique'}</ToggleButton>
         </div>
 
-        {/* Character selection */}
         <CharactersGrid charData={charData} tagData={tagData}/>
 
         <Button
@@ -57,7 +56,9 @@ SelectionScreen.propTypes = {
   setOnSelectionScreen: PropTypes.func,
   setNumPlayers: PropTypes.func,
   setTheme: PropTypes.func,
-  setUnique: PropTypes.func
+  setUnique: PropTypes.func,
+  charData: PropTypes.array,
+  tagData: PropTypes.array
 }
 
 export default SelectionScreen
