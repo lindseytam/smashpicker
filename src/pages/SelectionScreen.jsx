@@ -20,7 +20,7 @@ function SelectionScreen (props) {
 
   return (
     <div id="selection-panel" className="parallelogram bordered drop-shadow center">
-      <div className="panel-contents">
+      <div className="panel-contents" style={{ height: '40rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center' }}>
         <div id="button-bar">
           <DropdownButton name="playersDropdown" activeDropdown={activeDropdown === 'playersDropdown'} setActiveDropdown={setActiveDropdown} options={['1 Player', '2 Players', '3 Players', '4 Players', '5 Players', '6 Players', '7 Players', '8 Players']} onChange={playersOnSelect}>
             {`${numPlayers} ${numPlayers > 1 ? 'Players' : 'Player'}`}
@@ -30,7 +30,20 @@ function SelectionScreen (props) {
           </DropdownButton>
           <ToggleButton curVal={unique} toggleVal={() => setUnique(!unique)}>{unique ? 'Unique' : 'Not Unique'}</ToggleButton>
         </div>
-        <Button className="uppercase extrabold" color="golden" onClick={() => setOnSelectionScreen(false)}>Generate</Button>
+
+        {/* Character selection */}
+
+        <Button
+          className="uppercase extrabold italic"
+          color="golden"
+          onClick={() => setOnSelectionScreen(false)}
+          style={{
+            position: 'relative',
+            top: '1.5em'
+          }}
+          >
+          Generate
+        </Button>
       </div>
     </div>)
 }

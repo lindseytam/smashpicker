@@ -96,7 +96,7 @@ h1 {
   text-decoration: none;
   background-color: var(--white);
   transition: all .08s ease-out;
-  font-size: 1em;
+  font-size: 1.2em;
   cursor: pointer;
 }
 
