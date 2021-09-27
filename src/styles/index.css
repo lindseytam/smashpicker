@@ -1,7 +1,7 @@
 :root {
   --golden: #ffc452;
   --black: #000000;
-  --grey: #838383;
+  --grey: #bbbbbb;
   --white: #ffffff;
   --red: #c31616;
   --orange: #d65e22;
@@ -86,6 +86,7 @@ h1 {
 }
 
 .button {
+  margin: .5em;
   font-family: "Urbanist", -apple-system, BlinkMacSystemFont, "Segoe UI",
   "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
   "Helvetica Neue", sans-serif;
@@ -93,11 +94,9 @@ h1 {
   color: var(--black);
   padding: 0.5rem 2rem;
   text-decoration: none;
-  border-radius: 0.2rem;
-  border: 0.2em solid var(--black);
   background-color: var(--white);
   transition: all .08s ease-out;
-  font-size: 1em;
+  font-size: 1.2em;
   cursor: pointer;
 }
 
@@ -149,13 +148,30 @@ h1 {
   transform: skew(8deg);
 }
 
+.center.parallelogram {
+  transform: translate(-50%, -50%) skew(-8deg);
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bordered {
+  border-radius: .2rem;
+  border: 0.2em solid var(--black);
+}
+
 .dropdown-content {
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: var(--white);
   min-width: 160px;
   overflow: auto;
   z-index: 1;
   box-shadow: -0.1em 0.1em 0 var(--black);
+  transition: max-height .25s ease-out;
 }
 
 .dropdown-content .dropdown-element {
@@ -165,11 +181,36 @@ h1 {
   display: block;
 }
 
-.dropdown-element {
-  
-}
-
 .dropdown-element:hover {
   cursor: pointer;
   background-color: var(--grey);
 }
+
+/* Background Styles */
+#app-background #background-bar {
+  position: absolute; 
+  z-index: -1;
+  width: 100vw;
+  height: 30vh;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 2vh solid var(--black);
+  border-bottom: 2vh solid var(--black);
+  background: linear-gradient(90deg, #EE9D23 0%, #E40505 100%);
+}
+
+#app-background #background-img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -2;
+  width: 50vw;
+}
+
+
+/* Selection Panel */
+#selection-panel {
+  background-color: var(--white); 
+  width: 80vw;
+}
+
