@@ -1,0 +1,19 @@
+.Char-Grid {
+    width: 80%;
+}
+
+.Char-Img {
+    width: 100%;
+}
+
+.column {
+    float: left;
+    width: 6.5%;
+    border: 1px solid black;
+    background-color: #FFEBC6;
+}
+  
+.card {
+    padding: 10px;
+    text-align: center;
+}
