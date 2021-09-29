@@ -6,8 +6,8 @@ function CharactersGrid (props) {
   const [imagesToLoad, setImagesToLoad] = useState(null)
 
   useEffect(() => {
-    if (charData.length > 0) {
-      setImagesToLoad(charData.length)
+    if (charData.length > 0 && Object.keys(charData[0]).length > 0) {
+      setImagesToLoad(Object.keys(charData[0]).length)
     }
   }, [charData])
 

@@ -19,9 +19,6 @@ function AppComponent (props) {
     setTagData(event)
   }
 
-  console.log(charData)
-  console.log(tagData)
-
   let content = null
 
   if (onSelectionScreen) {

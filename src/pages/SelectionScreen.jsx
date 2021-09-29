@@ -22,9 +22,10 @@ function SelectionScreen (props) {
   }
 
   return (
-    <div id="selection-panel" className="parallelogram bordered drop-shadow center">
-      {!loaded && <SplashScreen/>}
-      <div className="panel-contents" style={{ display: loaded ? 'flex' : 'none', height: '40rem', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center' }}>
+    <React.Fragment>
+    {!loaded && <SplashScreen/>}
+    <div id="selection-panel" className="parallelogram bordered drop-shadow center" style={{ display: loaded ? 'block' : 'none' }}>
+      <div className="panel-contents" style={{ display: 'flex', height: '40rem', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center' }}>
         <div id="button-bar">
           <DropdownButton name="playersDropdown" activeDropdown={activeDropdown === 'playersDropdown'} setActiveDropdown={setActiveDropdown} options={['1 Player', '2 Players', '3 Players', '4 Players', '5 Players', '6 Players', '7 Players', '8 Players']} onChange={playersOnSelect}>
             {`${numPlayers} ${numPlayers > 1 ? 'Players' : 'Player'}`}
@@ -38,8 +39,8 @@ function SelectionScreen (props) {
         <CharactersGrid
           charData={charData}
           tagData={tagData}
-          // setLoaded={setLoaded}
-          setLoaded={() => {}}
+          setLoaded={setLoaded}
+          // setLoaded={() => {}}
         />
 
         <Button
@@ -54,7 +55,8 @@ function SelectionScreen (props) {
           Generate
         </Button>
       </div>
-    </div>)
+    </div>
+    </React.Fragment>)
 }
 
 SelectionScreen.propTypes = {
