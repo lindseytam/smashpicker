@@ -6,6 +6,10 @@
     width: 100%;
 }
 
+.Omit {
+    filter: brightness(0.6);
+}
+
 .column {
     float: left;
     width: 6.5%;

@@ -5,20 +5,15 @@ import { DropdownButton, Button, ToggleButton } from '../components/Button'
 import CharactersGrid from '../components/CharactersGrid'
 
 function SelectionScreen (props) {
-  const { theme, numPlayers, unique, setOnSelectionScreen, setNumPlayers, setTheme, setUnique, charData, tagData } = props
+  const { theme, numPlayers, unique, setOnSelectionScreen, setNumPlayers, setTheme, setUnique, charData, tagData, omitChars, setOmitChars } = props
   const [activeDropdown, setActiveDropdown] = useState(null)
   const [options, setOptions] = useState(['All Characters'])
-  // const options = ['All Characters']
 
   useEffect(() => {
-    // getCharData()
-    console.log('tagData', tagData)
     if (tagData.length !== 0) {
       const tags = Object.keys(tagData[0]).concat(options)
       setOptions(tags)
     }
-
-    // getTagData()
   }, [tagData])
 
   const playersOnSelect = (val) => {
@@ -45,7 +40,7 @@ function SelectionScreen (props) {
           <ToggleButton curVal={unique} toggleVal={() => setUnique(!unique)}>{unique ? 'Unique' : 'Not Unique'}</ToggleButton>
         </div>
 
-        <CharactersGrid charData={charData} tagData={tagData}/>
+        <CharactersGrid charData={charData} tagData={tagData} omitChars={omitChars} setOmitChars={setOmitChars} />
 
         <Button
           className="uppercase extrabold italic"
@@ -71,7 +66,9 @@ SelectionScreen.propTypes = {
   setTheme: PropTypes.func,
   setUnique: PropTypes.func,
   charData: PropTypes.array,
-  tagData: PropTypes.array
+  tagData: PropTypes.array,
+  omitChars: PropTypes.array,
+  setOmitChars: PropTypes.func
 }
 
 export default SelectionScreen

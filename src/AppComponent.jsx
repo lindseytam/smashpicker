@@ -11,12 +11,18 @@ function AppComponent (props) {
   const [unique, setUnique] = useState(true)
   const [charData, setcharData] = useState([])
   const [tagData, setTagData] = useState([])
+  const [omitChars, setOmitChars] = useState([])
 
   const handleCharChange = (event) => {
     setcharData(event)
   }
+
   const handleTagChange = (event) => {
     setTagData(event)
+  }
+
+  const handleOmittedChars = (event) => {
+    setOmitChars(event)
   }
 
   if (onSelectionScreen) {
@@ -36,6 +42,8 @@ function AppComponent (props) {
           setUnique={setUnique}
           charData={charData}
           tagData={tagData}
+          omitChars={omitChars}
+          setOmitChars={handleOmittedChars}
         />
       </Background>)
   } else {
