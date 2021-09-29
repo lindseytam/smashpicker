@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import './../styles/CharactersGridStyle.css'
 
 function CharactersGrid (props) {
-  const { charData, omitChars, setOmitChars } = props
+  const { charData, tagData, setLoaded, omitChars, setOmitChars } = props
+  const [imagesToLoad, setImagesToLoad] = useState(null)
+
+  useEffect(() => {
+    if (charData.length > 0 && Object.keys(charData[0]).length > 0) {
+      setImagesToLoad(Object.keys(charData[0]).length)
+    }
+  }, [charData])
+
+  useEffect(() => {
+    if (imagesToLoad === 0) {
+      setLoaded(true)
+    }
+  }, [imagesToLoad])
+
   const data = (charData.length === 0) ? [] : Object.keys(charData[0])
 
   const clickImg = (e) => {
@@ -30,6 +44,7 @@ function CharactersGrid (props) {
             onClick={clickImg}
             className="Char-Img"
             src={imgPath}
+            onLoad={() => setImagesToLoad(imagesToLoad - 1)}
           />
         </div>
       </div>
@@ -49,7 +64,8 @@ CharactersGrid.propTypes = {
   charData: PropTypes.array,
   tagData: PropTypes.array,
   omitChars: PropTypes.array,
-  setOmitChars: PropTypes.func
+  setOmitChars: PropTypes.func,
+  setLoaded: PropTypes.func
 }
 
 export default CharactersGrid

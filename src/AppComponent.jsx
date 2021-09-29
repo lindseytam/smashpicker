@@ -9,12 +9,12 @@ function AppComponent (props) {
   const [numPlayers, setNumPlayers] = useState(4)
   const [theme, setTheme] = useState('All Characters')
   const [unique, setUnique] = useState(true)
-  const [charData, setcharData] = useState([])
+  const [charData, setCharData] = useState([])
   const [tagData, setTagData] = useState([])
   const [omitChars, setOmitChars] = useState([])
 
   const handleCharChange = (event) => {
-    setcharData(event)
+    setCharData(event)
   }
 
   const handleTagChange = (event) => {
@@ -24,11 +24,12 @@ function AppComponent (props) {
   const handleOmittedChars = (event) => {
     setOmitChars(event)
   }
+  let content = null
 
   if (onSelectionScreen) {
-    return (
-      <Background>
-        <FirebaseConnector
+    content = (
+    <React.Fragment>
+      <FirebaseConnector
           setCharData={handleCharChange}
           setTagData={handleTagChange}
         />
@@ -45,13 +46,14 @@ function AppComponent (props) {
           omitChars={omitChars}
           setOmitChars={handleOmittedChars}
         />
-      </Background>)
+    </React.Fragment>)
   } else {
-    return (
-    <Background>
-      <ResultScreen numPlayers={numPlayers} theme={theme} unique={unique}/>
-    </Background>)
+    content = <ResultScreen numPlayers={numPlayers} theme={theme} unique={unique}/>
   }
+  return (
+  <Background>
+    {content}
+  </Background>)
 }
 
 export default AppComponent
