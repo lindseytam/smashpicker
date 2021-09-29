@@ -35,7 +35,12 @@ function SelectionScreen (props) {
           <ToggleButton curVal={unique} toggleVal={() => setUnique(!unique)}>{unique ? 'Unique' : 'Not Unique'}</ToggleButton>
         </div>
 
-        <CharactersGrid charData={charData} tagData={tagData} setLoaded={setLoaded}/>
+        <CharactersGrid
+          charData={charData}
+          tagData={tagData}
+          // setLoaded={setLoaded}
+          setLoaded={() => {}}
+        />
 
         <Button
           className="uppercase extrabold italic"
