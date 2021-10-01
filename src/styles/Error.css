@@ -1,0 +1,23 @@
+#background-blur {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-color: green;
+    opacity: .7;
+}
+
+.Error-Message {
+    top: 30%;
+
+    z-index: 999;
+    position: fixed;
+
+    display: block;
+    background-color: white !important;
+}
