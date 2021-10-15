@@ -12,6 +12,7 @@ function SelectionScreen (props) {
   const [activeDropdown, setActiveDropdown] = useState(null)
   const [options, setOptions] = useState(['All Characters'])
   const [loaded, setLoaded] = useState(false)
+  const [error, setError] = useState(false) // tracks which chars match criteria
 
   useEffect(() => {
     if (tagData.length !== 0) {
@@ -36,9 +37,14 @@ function SelectionScreen (props) {
     {!loaded && <SplashScreen/>}
     { loaded &&
       <>
-        <div id="background-blur"/>
-        <Error style={{ display: 'none', color: 'red' }}/>
-      </>}
+        { error &&
+          <>
+            <div id="background-blur"/>
+            <Error error={error} setError={setError} />
+          </>
+        }
+      </>
+    }
     <div id="selection-panel" className="parallelogram bordered drop-shadow center" style={{ display: loaded ? 'block' : 'none' }}>
       <div className="panel-contents" style={{ display: 'flex', height: '40rem', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center' }}>
         <div id="button-bar">
@@ -57,7 +63,7 @@ function SelectionScreen (props) {
           omitChars={omitChars}
           setOmitChars={setOmitChars}
         />
-        { loaded && <Generate theme={theme} omitChars={omitChars} tagData={tagData} charData={charData} unique={unique} numPlayers={numPlayers}/> }
+        { loaded && <Generate theme={theme} omitChars={omitChars} tagData={tagData} charData={charData} unique={unique} numPlayers={numPlayers} setError={setError}/> }
         <Button
           className="uppercase extrabold italic"
           color="golden"
