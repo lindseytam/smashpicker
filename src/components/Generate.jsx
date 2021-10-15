@@ -3,9 +3,8 @@ import PropTypes from 'prop-types'
 import _ from 'lodash'
 
 function Generate (props) {
-  const { theme, omitChars, tagData, charData, unique, numPlayers, setError } = props
+  const { theme, omitChars, tagData, charData, unique, numPlayers, setError, chosenChars, setChosenChars } = props
   const [valid, setValid] = useState([]) // tracks which chars match criteria
-  const [chosenChars, setChosenChars] = useState([]) // tracks which chars are chosen
 
   const setChars = () => {
     // user chose all chars
@@ -66,6 +65,7 @@ Generate.propTypes = {
   charData: PropTypes.array,
   unique: PropTypes.bool,
   numPlayers: PropTypes.number,
+  chosenChars: PropTypes.array,
   setError: PropTypes.func
 }
 

@@ -12,6 +12,7 @@ function AppComponent (props) {
   const [charData, setCharData] = useState([])
   const [tagData, setTagData] = useState([])
   const [omitChars, setOmitChars] = useState([])
+  const [chosenChars, setChosenChars] = useState([]) // tracks which chars are chosen
 
   const handleCharChange = (event) => {
     setCharData(event)
@@ -45,10 +46,21 @@ function AppComponent (props) {
           tagData={tagData}
           omitChars={omitChars}
           setOmitChars={handleOmittedChars}
+          chosenChars={chosenChars}
+          setChosenChars={setChosenChars}
         />
     </React.Fragment>)
   } else {
-    content = <ResultScreen numPlayers={numPlayers} theme={theme} unique={unique}/>
+    content = <ResultScreen
+                numPlayers={numPlayers}
+                theme={theme}
+                chosenChars={chosenChars}
+                setChosenChars={setChosenChars}
+                omitChars={omitChars}
+                tagData={tagData}
+                unique={unique}
+                charData={charData}
+              />
   }
   return (
   <Background>

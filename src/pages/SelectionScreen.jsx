@@ -8,7 +8,7 @@ import Generate from '../components/Generate'
 import Error from './../components/Error'
 
 function SelectionScreen (props) {
-  const { theme, numPlayers, unique, setOnSelectionScreen, setNumPlayers, setTheme, setUnique, charData, tagData, omitChars, setOmitChars } = props
+  const { theme, numPlayers, unique, setOnSelectionScreen, setNumPlayers, setTheme, setUnique, charData, tagData, omitChars, setOmitChars, chosenChars, setChosenChars } = props
   const [activeDropdown, setActiveDropdown] = useState(null)
   const [options, setOptions] = useState(['All Characters'])
   const [loaded, setLoaded] = useState(false)
@@ -63,7 +63,7 @@ function SelectionScreen (props) {
           omitChars={omitChars}
           setOmitChars={setOmitChars}
         />
-        { loaded && <Generate theme={theme} omitChars={omitChars} tagData={tagData} charData={charData} unique={unique} numPlayers={numPlayers} setError={setError}/> }
+        { loaded && <Generate chosenChars={chosenChars} setChosenChars={setChosenChars} theme={theme} omitChars={omitChars} tagData={tagData} charData={charData} unique={unique} numPlayers={numPlayers} setError={setError}/> }
         <Button
           className="uppercase extrabold italic"
           color="golden"
@@ -91,7 +91,9 @@ SelectionScreen.propTypes = {
   charData: PropTypes.array,
   tagData: PropTypes.array,
   omitChars: PropTypes.array,
-  setOmitChars: PropTypes.func
+  setOmitChars: PropTypes.func,
+  chosenChars: PropTypes.array,
+  setChosenChars: PropTypes.func
 }
 
 export default SelectionScreen
