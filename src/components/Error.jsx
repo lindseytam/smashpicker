@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import './../styles/Error.css'
 
-function Error (props) {
-  const { setError } = (props)
-
+function Error () {
   const handleClick = () => {
-    setError(false)
+    document.getElementById('error').style.display = 'none'
+    document.getElementById('background-blur').style.display = 'none'
   }
 
   return (
@@ -16,10 +14,6 @@ function Error (props) {
         <button onClick={() => handleClick()}> OK </button>
     </div>
   )
-}
-
-Error.propTypes = {
-  setError: PropTypes.func
 }
 
 export default Error

@@ -6,6 +6,7 @@ function Generate (props) {
   const { theme, omitChars, tagData, charData, unique, numPlayers } = props
   const [valid, setValid] = useState([]) // tracks which chars match criteria
   const [chosenChars, setChosenChars] = useState([]) // tracks which chars are chosen
+  const [error, setError] = useState(false) // tracks which chars match criteria
 
   const setChars = () => {
     // user chose all chars
@@ -52,19 +53,36 @@ function Generate (props) {
   }, [valid, unique])
 
   useEffect(() => {
+    console.log('chosenChars=', chosenChars)
     const includesError = chosenChars.includes(null) || chosenChars.includes(undefined)
+    setError(includesError)
   }, [chosenChars])
 
+  useEffect(() => {
+    const background = document.getElementById('background-blur')
+    const errorMessage = document.getElementById('error')
+
+    if (error) {
+      const display = 'block'
+      background.style.display = display
+      errorMessage.style.display = display
+    } else {
+      const display = 'none'
+      background.style.display = display
+      errorMessage.style.display = display
+    }
+  }, [error])
+
   return (
-      <div style={{ color: 'black' }}>
-          theme={JSON.stringify(theme)}
-          <br/>
-          omitChars={'omitChars', JSON.stringify(omitChars)}
-          <br/>
-          choose_from={'valid=', JSON.stringify(valid)}
-          <br/>
-          chosen={'chosenChars=', JSON.stringify(chosenChars)}
-      </div>
+    <div style={{ color: 'black' }}>
+        theme={JSON.stringify(theme)}
+        <br/>
+        omitChars={'omitChars', JSON.stringify(omitChars)}
+        <br/>
+        choose_from={'valid=', JSON.stringify(valid)}
+        <br/>
+        chosen={'chosenChars=', JSON.stringify(chosenChars)}
+    </div>
   )
 }
 

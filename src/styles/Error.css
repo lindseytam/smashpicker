@@ -7,17 +7,18 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: -1;
-    background-color: green;
+    z-index: 10;
+    background-color: black;
     opacity: .7;
 }
 
 .Error-Message {
+    display: none;
     top: 30%;
-
+    color: black;
     z-index: 999;
-    position: fixed;
-
-    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
     background-color: white !important;
 }

@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import { DropdownButton, Button, ToggleButton } from '../components/Button'
 import CharactersGrid from '../components/CharactersGrid'
 import SplashScreen from './SplashScreen'
+import Generate from '../components/Generate'
+import Error from './../components/Error'
 
 function SelectionScreen (props) {
   const { theme, numPlayers, unique, setOnSelectionScreen, setNumPlayers, setTheme, setUnique, charData, tagData, omitChars, setOmitChars } = props
@@ -32,6 +34,11 @@ function SelectionScreen (props) {
   return (
     <React.Fragment>
     {!loaded && <SplashScreen/>}
+    { loaded &&
+      <>
+        <div id="background-blur"/>
+        <Error style={{ display: 'none', color: 'red' }}/>
+      </>}
     <div id="selection-panel" className="parallelogram bordered drop-shadow center" style={{ display: loaded ? 'block' : 'none' }}>
       <div className="panel-contents" style={{ display: 'flex', height: '40rem', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center' }}>
         <div id="button-bar">
@@ -50,7 +57,7 @@ function SelectionScreen (props) {
           omitChars={omitChars}
           setOmitChars={setOmitChars}
         />
-
+        { loaded && <Generate theme={theme} omitChars={omitChars} tagData={tagData} charData={charData} unique={unique} numPlayers={numPlayers}/> }
         <Button
           className="uppercase extrabold italic"
           color="golden"
