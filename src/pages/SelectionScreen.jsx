@@ -32,6 +32,12 @@ function SelectionScreen (props) {
     setActiveDropdown(null)
   }
 
+  const handleScreenChange = () => {
+    const includesError = chosenChars.includes(null) || chosenChars.includes(undefined)
+    if (includesError) setError(true)
+    else setOnSelectionScreen(false)
+  }
+
   return (
     <React.Fragment>
     {!loaded && <SplashScreen/>}
@@ -67,7 +73,7 @@ function SelectionScreen (props) {
         <Button
           className="uppercase extrabold italic"
           color="golden"
-          onClick={() => setOnSelectionScreen(false)}
+          onClick={() => handleScreenChange()}
           style={{
             position: 'relative',
             top: '1.5em'
