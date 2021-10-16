@@ -13,12 +13,31 @@
 }
 
 .Error-Message {
-    display: none;
-    top: 30%;
+    padding: 20px;
+    top: 50%;
     color: black;
     z-index: 999;
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
     background-color: white !important;
+    text-align: center;
+}
+
+.Error-Contents > h2 {
+    font-weight: heavy;
+    font-size: 24px;
+}
+
+.Error-Contents > p {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 16px;
+}
+
+.Error-Contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }

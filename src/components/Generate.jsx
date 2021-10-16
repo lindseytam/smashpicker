@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
 
 function Generate (props) {
-  const { theme, omitChars, tagData, charData, unique, numPlayers } = props
+  const { theme, omitChars, tagData, charData, unique, numPlayers, setError, chosenChars, setChosenChars } = props
   const [valid, setValid] = useState([]) // tracks which chars match criteria
-  const [chosenChars, setChosenChars] = useState([]) // tracks which chars are chosen
-  const [error, setError] = useState(false) // tracks which chars match criteria
 
   const setChars = () => {
-    // user chose all chars
-    if (charData.length !== 0 && theme === 'All Characters') { removeInvalid(Object.keys(charData[0])) }
-
-    // user chose firebase theme
-    else if (charData.length !== 0) { removeInvalid(tagData[0][theme]) }
+    if (charData.length !== 0 && theme === 'All Characters') { // user chose all chars
+      removeInvalid(Object.keys(charData[0]))
+    } else if (charData.length !== 0) { removeInvalid(tagData[0][theme]) } // user chose firebase theme
   }
 
   // remove omitted chars
@@ -53,37 +49,11 @@ function Generate (props) {
   }, [valid, unique])
 
   useEffect(() => {
-    console.log('chosenChars=', chosenChars)
     const includesError = chosenChars.includes(null) || chosenChars.includes(undefined)
     setError(includesError)
   }, [chosenChars])
 
-  useEffect(() => {
-    const background = document.getElementById('background-blur')
-    const errorMessage = document.getElementById('error')
-
-    if (error) {
-      const display = 'block'
-      background.style.display = display
-      errorMessage.style.display = display
-    } else {
-      const display = 'none'
-      background.style.display = display
-      errorMessage.style.display = display
-    }
-  }, [error])
-
-  return (
-    <div style={{ color: 'black' }}>
-        theme={JSON.stringify(theme)}
-        <br/>
-        omitChars={'omitChars', JSON.stringify(omitChars)}
-        <br/>
-        choose_from={'valid=', JSON.stringify(valid)}
-        <br/>
-        chosen={'chosenChars=', JSON.stringify(chosenChars)}
-    </div>
-  )
+  return null
 }
 
 Generate.propTypes = {
@@ -92,8 +62,9 @@ Generate.propTypes = {
   tagData: PropTypes.array,
   charData: PropTypes.array,
   unique: PropTypes.bool,
-  numPlayers: PropTypes.number
-
+  numPlayers: PropTypes.number,
+  chosenChars: PropTypes.array,
+  setError: PropTypes.func
 }
 
 export default Generate

@@ -8,10 +8,11 @@ import Generate from '../components/Generate'
 import Error from './../components/Error'
 
 function SelectionScreen (props) {
-  const { theme, numPlayers, unique, setOnSelectionScreen, setNumPlayers, setTheme, setUnique, charData, tagData, omitChars, setOmitChars } = props
+  const { theme, numPlayers, unique, setOnSelectionScreen, setNumPlayers, setTheme, setUnique, charData, tagData, omitChars, setOmitChars, chosenChars, setChosenChars } = props
   const [activeDropdown, setActiveDropdown] = useState(null)
   const [options, setOptions] = useState(['All Characters'])
   const [loaded, setLoaded] = useState(false)
+  const [error, setError] = useState(false) // tracks which chars match criteria
 
   useEffect(() => {
     if (tagData.length !== 0) {
@@ -31,14 +32,25 @@ function SelectionScreen (props) {
     setActiveDropdown(null)
   }
 
+  const handleScreenChange = () => {
+    const includesError = chosenChars.includes(null) || chosenChars.includes(undefined)
+    if (includesError) setError(true)
+    else setOnSelectionScreen(false)
+  }
+
   return (
     <React.Fragment>
     {!loaded && <SplashScreen/>}
     { loaded &&
       <>
-        <div id="background-blur"/>
-        <Error style={{ display: 'none', color: 'red' }}/>
-      </>}
+        { error &&
+          <>
+            <div id="background-blur"/>
+            <Error error={error} setError={setError} />
+          </>
+        }
+      </>
+    }
     <div id="selection-panel" className="parallelogram bordered drop-shadow center" style={{ display: loaded ? 'block' : 'none' }}>
       <div className="panel-contents" style={{ display: 'flex', height: '40rem', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center' }}>
         <div id="button-bar">
@@ -57,11 +69,11 @@ function SelectionScreen (props) {
           omitChars={omitChars}
           setOmitChars={setOmitChars}
         />
-        { loaded && <Generate theme={theme} omitChars={omitChars} tagData={tagData} charData={charData} unique={unique} numPlayers={numPlayers}/> }
+        { loaded && <Generate chosenChars={chosenChars} setChosenChars={setChosenChars} theme={theme} omitChars={omitChars} tagData={tagData} charData={charData} unique={unique} numPlayers={numPlayers} setError={setError}/> }
         <Button
           className="uppercase extrabold italic"
           color="golden"
-          onClick={() => setOnSelectionScreen(false)}
+          onClick={() => handleScreenChange()}
           style={{
             position: 'relative',
             top: '1.5em'
@@ -85,7 +97,9 @@ SelectionScreen.propTypes = {
   charData: PropTypes.array,
   tagData: PropTypes.array,
   omitChars: PropTypes.array,
-  setOmitChars: PropTypes.func
+  setOmitChars: PropTypes.func,
+  chosenChars: PropTypes.array,
+  setChosenChars: PropTypes.func
 }
 
 export default SelectionScreen
