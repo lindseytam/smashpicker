@@ -251,7 +251,7 @@ h1 {
 .selected-character-box {
   border: 0.6em solid var(--black);
   min-width: 300px;
-  width: 25%;
+  width: 24%;
   margin-right: -.6em;
   margin-bottom: -.6em;
   height: 50%;

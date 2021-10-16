@@ -16,40 +16,51 @@ function ResultScreen (props) {
     setShuffle(false)
   }
 
-  return (
-    <div>
-        <div id="results-screen">
-          <div className="results-container">
-            {console.log(charData)}
-            {chosenChars.map(char =>
-            <SelectedCharacter
-              key={char}
-              characterName={charData[0][char].Name}
-              characterImgUrl={charData[0][char].Img}
-              playerNum={1}
-            />)}
-          </div>
-        </div>
-        <p>Num players: {numPlayers}</p>
-        <p>Theme: {theme}</p>
-        <p>Chosen Chars: {chosenChars}</p>
-        <div>
-          <Button className="uppercase extrabold"><h3>Back</h3></Button>
-          <Button onClick={handleShuffle} className="uppercase extrabold" color="golden">Shuffle</Button>
-        </div>
-        {shuffle &&
-          <Generate
-            chosenChars={chosenChars}
-            setChosenChars={setChosenChars}
-            theme={theme} omitChars={omitChars}
-            tagData={tagData}
-            charData={charData}
-            unique={unique}
-            numPlayers={numPlayers}
-            setError={() => null}
+  const renderImg = () => {
+    const isError = chosenChars.includes(null) || chosenChars.includes(undefined)
+    if (!isError) {
+      return (
+        chosenChars.map(char =>
+          (char !== undefined) &&
+           <SelectedCharacter
+            key={char}
+            characterName={charData[0][char].Name}
+            characterImgUrl={charData[0][char].Img}
+            playerNum={1}
           />
-        }
-    </div>)
+        )
+      )
+    } else return null
+  }
+
+  return (
+    <>
+      <div id="results-screen">
+        <div className="results-container">
+          {renderImg()}
+        </div>
+      </div>
+      <p>Num players: {numPlayers}</p>
+      <p>Theme: {theme}</p>
+      <p>Chosen Chars: {chosenChars}</p>
+      <div>
+        <Button className="uppercase extrabold"><h3>Back</h3></Button>
+        <Button onClick={handleShuffle} className="uppercase extrabold" color="golden">Shuffle</Button>
+      </div>
+      {shuffle &&
+        <Generate
+          chosenChars={chosenChars}
+          setChosenChars={setChosenChars}
+          theme={theme} omitChars={omitChars}
+          tagData={tagData}
+          charData={charData}
+          unique={unique}
+          numPlayers={numPlayers}
+          setError={() => null}
+        />
+      }
+    </>
+  )
 }
 
 ResultScreen.propTypes = {
