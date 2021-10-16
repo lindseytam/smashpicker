@@ -4,6 +4,7 @@ import { Button } from '../components/Button'
 import Generate from '../components/Generate'
 import SelectedCharacter from '../components/SelectedCharacter'
 
+import SelectedCharacter from '../components/SelectedCharacter'
 function ResultScreen (props) {
   const { numPlayers, theme, chosenChars, setChosenChars, omitChars, tagData, unique, charData } = props
   const [shuffle, setShuffle] = useState(false)
