@@ -38,7 +38,7 @@ function CharactersGrid (props) {
     const id = charData[0][item].Name
     return (
       <div key={item} className={(omitChars.includes(id)) ? 'Omit column' : 'column' }>
-        <div className="card">
+        <div className="char-card">
           <img
             id={id}
             onClick={clickImg}
