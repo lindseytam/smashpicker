@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import './../styles/CharactersGridStyle.css'
 
 function CharactersGrid (props) {
-  const { charData, setLoaded, omitChars, setOmitChars } = props
+  const { theme, tagData, charData, setLoaded, omitChars, setOmitChars } = props
   const [imagesToLoad, setImagesToLoad] = useState(null)
 
   useEffect(() => {
@@ -36,9 +36,10 @@ function CharactersGrid (props) {
   const renderImg = (item) => {
     const imgPath = charData[0][item].Img
     const id = charData[0][item].Name
+    const validChars = (theme === 'All Characters') ? Object.keys(charData[0]) : tagData[0][theme]
     return (
-      <div key={item} className={(omitChars.includes(id)) ? 'Omit column' : 'column' }>
-        <div className="char-card">
+      <div key={item} className={omitChars.includes(id) || !validChars.includes(id) ? 'Omit column' : 'column' }>
+        <div className="card">
           <img
             id={id}
             onClick={clickImg}
@@ -61,6 +62,8 @@ function CharactersGrid (props) {
 }
 
 CharactersGrid.propTypes = {
+  theme: PropTypes.string,
+  tagData: PropTypes.array,
   charData: PropTypes.array,
   omitChars: PropTypes.array,
   setOmitChars: PropTypes.func,

@@ -64,6 +64,8 @@ function SelectionScreen (props) {
         </div>
 
         <CharactersGrid
+          theme={theme}
+          tagData={tagData}
           charData={charData}
           setLoaded={setLoaded}
           omitChars={omitChars}
