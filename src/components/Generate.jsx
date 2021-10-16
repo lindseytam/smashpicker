@@ -7,11 +7,9 @@ function Generate (props) {
   const [valid, setValid] = useState([]) // tracks which chars match criteria
 
   const setChars = () => {
-    // user chose all chars
-    if (charData.length !== 0 && theme === 'All Characters') { removeInvalid(Object.keys(charData[0])) }
-
-    // user chose firebase theme
-    else if (charData.length !== 0) { removeInvalid(tagData[0][theme]) }
+    if (charData.length !== 0 && theme === 'All Characters') { // user chose all chars
+      removeInvalid(Object.keys(charData[0]))
+    } else if (charData.length !== 0) { removeInvalid(tagData[0][theme]) } // user chose firebase theme
   }
 
   // remove omitted chars
