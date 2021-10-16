@@ -86,7 +86,7 @@ h1 {
 }
 
 .button {
-  margin: .5em;
+  margin: .8em;
   font-family: "Urbanist", -apple-system, BlinkMacSystemFont, "Segoe UI",
   "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
   "Helvetica Neue", sans-serif;
@@ -98,6 +98,11 @@ h1 {
   transition: all .08s ease-out;
   font-size: 1.2em;
   cursor: pointer;
+}
+
+.button * {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .button.button-golden {
@@ -217,9 +222,7 @@ h1 {
 }
 
 
-img {
-  cursor: pointer;
-}
+/* Loading Screen */
 
 .loading-logo {
   height: 40vmin;
@@ -239,4 +242,56 @@ img {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Selected Character Box */
+.selected-character-box {
+  border: 0.6em solid var(--black);
+  min-width: 300px;
+  width: 25%;
+  margin-right: -.6em;
+  margin-bottom: -.6em;
+  height: 50%;
+}
+
+.selected-character-box .content {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 100%;
+}
+
+.selected-character-box .content .name-box {
+  position:relative;
+  right: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5em;
+}
+
+.selected-character-box .content img {
+  width: 50%;
+  height: auto;
+}
+
+#results-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.results-container {
+  width: 80%;
+  min-height: 80vh;
+  height: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  
 }
