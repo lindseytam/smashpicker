@@ -17,7 +17,8 @@ function SelectionScreen (props) {
   useEffect(() => {
     if (tagData.length !== 0) {
       const tags = Object.keys(tagData[0]).concat(options)
-      setOptions(tags)
+      const uniqueTags = [...new Set(tags)] // ensure all vals are unique
+      setOptions(uniqueTags)
     }
   }, [tagData])
 
