@@ -11,7 +11,7 @@ function SelectionScreen (props) {
   const { theme, numPlayers, unique, setOnSelectionScreen, setNumPlayers, setTheme, setUnique, charData, tagData, omitChars, setOmitChars, chosenChars, setChosenChars } = props
   const [activeDropdown, setActiveDropdown] = useState(null)
   const [options, setOptions] = useState(['All Characters'])
-  const [loaded, setLoaded] = useState(false)
+  const [loaded, setLoaded] = useState((charData.length !== 0))
   const [error, setError] = useState(false) // tracks which chars match criteria
 
   useEffect(() => {

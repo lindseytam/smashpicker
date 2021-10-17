@@ -60,6 +60,7 @@ function AppComponent (props) {
                 tagData={tagData}
                 unique={unique}
                 charData={charData}
+                setOnSelectionScreen={setOnSelectionScreen}
               />
   }
   return (

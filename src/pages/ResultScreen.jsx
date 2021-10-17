@@ -4,7 +4,7 @@ import { Button } from '../components/Button'
 import Generate from '../components/Generate'
 import SelectedCharacter from '../components/SelectedCharacter'
 function ResultScreen (props) {
-  const { numPlayers, theme, chosenChars, setChosenChars, omitChars, tagData, unique, charData } = props
+  const { numPlayers, theme, chosenChars, setChosenChars, omitChars, tagData, unique, charData, setOnSelectionScreen } = props
   const [shuffle, setShuffle] = useState(false)
 
   // helper function to wait X seconds
@@ -44,7 +44,7 @@ function ResultScreen (props) {
       <p>Theme: {theme}</p>
       <p>Chosen Chars: {chosenChars}</p>
       <div>
-        <Button className="uppercase extrabold"><h3>Back</h3></Button>
+        <Button onClick={() => setOnSelectionScreen(true)} className="uppercase extrabold"><h3>Back</h3></Button>
         <Button onClick={handleShuffle} className="uppercase extrabold" color="golden">Shuffle</Button>
       </div>
       {shuffle &&
@@ -71,7 +71,8 @@ ResultScreen.propTypes = {
   omitChars: PropTypes.Array,
   tagData: PropTypes.array,
   unique: PropTypes.bool,
-  charData: PropTypes.Array
+  charData: PropTypes.Array,
+  setOnSelectionScreen: PropTypes.func
 }
 
 export default ResultScreen
