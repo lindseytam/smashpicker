@@ -23,8 +23,9 @@ function SelectedCharacter (props) {
       <h2 style={{ position: 'absolute', left: '3%' }}>P{playerNum}</h2>
       <div className="content ">
         <img src={characterImgUrl}/>
-        <div className="name-box parallelogram" style={{ width: '100%', backgroundColor: 'var(--orange)' }}>
-          <h1 className="Selected-Char" style={{ fontSize: '42px' }}>{characterName}</h1>
+        <div className="char-name-border"></div>
+        <div className="name-box parallelogram char-name" style={{ width: '100%', backgroundColor: 'var(--beige)' }}>
+          <h1 style={{ color: 'black', fontSize: '32px', paddingTop: '.5em', fontWeight: 'normal' }}>{characterName}</h1>
         </div>
       </div>
     </div>

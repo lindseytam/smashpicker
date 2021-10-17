@@ -9,8 +9,9 @@
   --green: #079728;
   --blue: #356bee;
   --purple: #562dae;
-  --magenta: #d7307d;
+  --pink: #d7307d;
   --cyan: #1aa7d5;
+  --beige: #FFC452;
 }
 
 @font-face {
@@ -217,13 +218,11 @@ h1 {
   width: 50vw;
 }
 
-
 /* Selection Panel */
 #selection-panel {
   background-color: var(--white); 
   width: 80vw;
 }
-
 
 /* Loading Screen */
 
@@ -273,7 +272,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 5em;
+  height: 7em;
 }
 
 .selected-character-box .content img {
@@ -298,3 +297,23 @@ h1 {
   flex-wrap: wrap;
   
 }
+
+.char-name {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0% 21%, 100% 0, 100% 100%, 0 100%);
+}
+
+.char-name-border {
+  width: 105%;
+  height: 40px;
+  background-color:black;
+  position: relative;
+  right: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 60%, 100% 0%, 100% 40%, 0% 100%);
+  margin-bottom: -30px;
+}
+
