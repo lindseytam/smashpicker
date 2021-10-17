@@ -18,6 +18,12 @@ function CharactersGrid (props) {
     }
   }, [imagesToLoad])
 
+  useEffect(() => {
+    if (theme === 'Random Theme') {
+      setLoaded(true)
+    }
+  }, [theme])
+
   const data = (charData.length === 0) ? [] : Object.keys(charData[0])
 
   const clickImg = (e) => {
@@ -36,7 +42,7 @@ function CharactersGrid (props) {
   const renderImg = (item) => {
     const imgPath = charData[0][item].Img
     const id = charData[0][item].Name
-    const validChars = (theme === 'All Characters') ? Object.keys(charData[0]) : tagData[0][theme]
+    const validChars = (theme === 'All Characters' || theme === 'Random Theme') ? Object.keys(charData[0]) : tagData[0][theme]
     return (
       <div key={item} className={omitChars.includes(id) || !validChars.includes(id) ? 'Omit column' : 'column' }>
         <div className="card">
