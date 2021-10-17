@@ -250,10 +250,10 @@ h1 {
 .selected-character-box {
   border: 0.6em solid var(--black);
   min-width: 300px;
-  width: 24%;
+  width: 20%;
   margin-right: -.6em;
   margin-bottom: -.6em;
-  height: 50%;
+  /* height: 50%; */
 }
 
 .selected-character-box .content {
@@ -268,7 +268,7 @@ h1 {
 
 .selected-character-box .content .name-box {
   position:relative;
-  right: 4%;
+  /* right: 4%; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -276,8 +276,17 @@ h1 {
 }
 
 .selected-character-box .content img {
-  width: 50%;
+  width: 30%;
   height: auto;
+}
+
+.Player-Num {
+  position: relative; 
+  left: 3%;
+  margin-bottom: 0; 
+  margin-top: 5px; 
+  padding-left: 10px;
+  font-size: 36px;
 }
 
 #results-screen {
@@ -304,11 +313,11 @@ h1 {
 }
 
 .char-name-border {
-  width: 105%;
+  width: 101%;
   height: 40px;
   background-color:black;
   position: relative;
-  right: 2%;
+  /* right: 2%; */
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { transform } from 'lodash'
 
 const playerColors = {
   1: 'red',
@@ -17,14 +18,22 @@ function SelectedCharacter (props) {
 
   return (
     <div
-      className='selected-character-box parallelogram'
-      style={{ backgroundColor: 'var(--' + playerColors[playerNum] + ')' }}
+      className='selected-character-box'
+      style={{
+        backgroundColor: 'var(--' + playerColors[playerNum] + ')',
+        display: 'inline-block',
+        transform: 'none',
+        margin: '5px'
+        // transform: 'transform: translate(-50%, -50%) skew(-8deg)'
+      }}
     >
-      <h2 style={{ position: 'absolute', left: '3%' }}>P{playerNum}</h2>
+      {/* <h2 style={{ position: 'absolute', left: '3%' }}>P{playerNum}</h2> */}
+      <h2 className="Player-Num">P{playerNum}</h2>
+
       <div className="content ">
         <img src={characterImgUrl}/>
         <div className="char-name-border"></div>
-        <div className="name-box parallelogram char-name" style={{ width: '100%', backgroundColor: 'var(--beige)' }}>
+        <div className="name-box char-name" style={{ width: '100%', backgroundColor: 'var(--beige)' }}>
           <h1 style={{ color: 'black', fontSize: '32px', paddingTop: '.5em', fontWeight: 'normal' }}>{characterName}</h1>
         </div>
       </div>

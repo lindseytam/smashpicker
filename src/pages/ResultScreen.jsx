@@ -37,7 +37,10 @@ function ResultScreen (props) {
     <>
       <div id="results-screen">
         <div className="results-container">
+        <div className="parallelogram bordered drop-shadow center" style={{ display: 'block', width: '80vw', padding: '10px', backgroundColor: 'black' }}>
+
           {renderImg()}
+          </div>
         </div>
       </div>
       <p>Num players: {numPlayers}</p>
