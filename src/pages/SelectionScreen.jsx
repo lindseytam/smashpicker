@@ -10,7 +10,7 @@ import Error from './../components/Error'
 function SelectionScreen (props) {
   const { theme, numPlayers, unique, setOnSelectionScreen, setNumPlayers, setTheme, setUnique, charData, tagData, omitChars, setOmitChars, chosenChars, setChosenChars } = props
   const [activeDropdown, setActiveDropdown] = useState(null)
-  const [options, setOptions] = useState(['All Characters'])
+  const [options, setOptions] = useState(['Random Theme', 'All Characters'])
   const [loaded, setLoaded] = useState((charData.length !== 0))
   const [error, setError] = useState(false) // tracks which chars match criteria
 
