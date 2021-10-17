@@ -27,10 +27,9 @@ function SelectedCharacter (props) {
         // transform: 'transform: translate(-50%, -50%) skew(-8deg)'
       }}
     >
-      {/* <h2 style={{ position: 'absolute', left: '3%' }}>P{playerNum}</h2> */}
       <h2 className="Player-Num">P{playerNum}</h2>
 
-      <div className="content ">
+      <div className="content">
         <img src={characterImgUrl}/>
         <div className="char-name-border"></div>
         <div className="name-box char-name" style={{ width: '100%', backgroundColor: 'var(--beige)' }}>

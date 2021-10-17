@@ -36,19 +36,13 @@ function ResultScreen (props) {
   return (
     <>
       <div id="results-screen">
-        <div className="results-container">
-        <div className="parallelogram bordered drop-shadow center" style={{ display: 'block', width: '80vw', padding: '10px', backgroundColor: 'black' }}>
-
+        <div className="parallelogram results-container bordered drop-shadow" style={{ width: '80vw', padding: '10px', backgroundColor: 'black' }}>
           {renderImg()}
-          </div>
         </div>
-      </div>
-      <p>Num players: {numPlayers}</p>
-      <p>Theme: {theme}</p>
-      <p>Chosen Chars: {chosenChars}</p>
-      <div>
-        <Button onClick={() => setOnSelectionScreen(true)} className="uppercase extrabold"><h3>Back</h3></Button>
-        <Button onClick={handleShuffle} className="uppercase extrabold" color="golden">Shuffle</Button>
+        <div>
+          <Button onClick={() => setOnSelectionScreen(true)} className="uppercase extrabold"><h3>Back</h3></Button>
+          <Button onClick={handleShuffle} className="uppercase extrabold" color="golden">Shuffle</Button>
+        </div>
       </div>
       {shuffle &&
         <Generate
