@@ -12,7 +12,7 @@ function ResultScreen (props) {
 
   const handleShuffle = async () => {
     setShuffle(true)
-    await delay(500) // wait for half a second
+    await delay(1000) // wait for one second
     setShuffle(false)
   }
 

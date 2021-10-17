@@ -25,7 +25,7 @@ function SelectedCharacter (props) {
       <div className="content ">
         <img src={characterImgUrl}/>
         <div className="name-box parallelogram" style={{ width: '100%', backgroundColor: 'var(--orange)' }}>
-          <h1>{characterName}</h1>
+          <h1 className="Selected-Char" style={{ fontSize: '42px' }}>{characterName}</h1>
         </div>
       </div>
     </div>
