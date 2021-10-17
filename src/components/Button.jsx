@@ -29,7 +29,7 @@ function DropdownButton (props) {
           {children}
         </span>
       </button>
-      <div className={`dropdown-content ${activeDropdown ? 'bordered' : ''} drop-shadow`} style={{ height: activeDropdown ? 'auto' : '0', maxHeight: activeDropdown ? '100vh' : '0' }}>
+      <div className={`dropdown-content ${activeDropdown ? 'bordered' : ''} drop-shadow`} style={{ height: activeDropdown ? 'auto' : '0' }}>
         {options.map(e => <a className="dropdown-element" onClick={e => onChange(e.target.text)} value={e} key={e}>{e}</a>)}
       </div>
   </div>)
