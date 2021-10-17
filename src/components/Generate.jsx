@@ -42,7 +42,7 @@ function Generate (props) {
 
   useEffect(() => {
     setChars()
-  }, [theme, charData, omitChars])
+  }, [theme, charData, omitChars, numPlayers])
 
   useEffect(() => {
     chooseAllChars()
@@ -51,7 +51,7 @@ function Generate (props) {
   useEffect(() => {
     const includesError = chosenChars.includes(null) || chosenChars.includes(undefined)
     setError(includesError)
-  }, [chosenChars])
+  }, [chosenChars, numPlayers])
 
   return null
 }
