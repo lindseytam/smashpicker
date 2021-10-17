@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import img from '../assets/background.png'
 
 const playerColors = {
   1: 'red',
@@ -33,7 +32,9 @@ function SelectedCharacter (props) {
 }
 
 SelectedCharacter.propTypes = {
-  children: PropTypes.any
+  characterName: PropTypes.string,
+  characterImgUrl: PropTypes.string,
+  playerNum: PropTypes.number
 }
 
 export default SelectedCharacter
