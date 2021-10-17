@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { transform } from 'lodash'
 
 const playerColors = {
   1: 'red',
@@ -24,7 +23,6 @@ function SelectedCharacter (props) {
         display: 'inline-block',
         transform: 'none',
         margin: '5px'
-        // transform: 'transform: translate(-50%, -50%) skew(-8deg)'
       }}
     >
       <h2 className="Player-Num">P{playerNum}</h2>
