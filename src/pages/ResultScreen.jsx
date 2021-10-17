@@ -20,13 +20,13 @@ function ResultScreen (props) {
     const isError = chosenChars.includes(null) || chosenChars.includes(undefined)
     if (!isError) {
       return (
-        chosenChars.map(char =>
+        chosenChars.map((char, i) =>
           (char !== undefined) &&
            <SelectedCharacter
             key={char}
             characterName={charData[0][char].Name}
             characterImgUrl={charData[0][char].Img}
-            playerNum={1}
+            playerNum={i + 1}
           />
         )
       )
