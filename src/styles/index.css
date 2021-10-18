@@ -9,8 +9,9 @@
   --green: #079728;
   --blue: #356bee;
   --purple: #562dae;
-  --magenta: #d7307d;
+  --pink: #d7307d;
   --cyan: #1aa7d5;
+  --beige: #FFC452;
 }
 
 @font-face {
@@ -67,7 +68,7 @@ code {
 h1 {
   font-style: italic;
   font-weight: 900;
-  font-size: 72px;
+  font-size: 4em;
   text-transform: uppercase;
 }
 
@@ -182,6 +183,8 @@ h1 {
   z-index: 1;
   box-shadow: -0.1em 0.1em 0 var(--black);
   transition: max-height .25s ease-out;
+  max-height: 500px;
+  overflow-y: scroll;
 }
 
 .dropdown-content .dropdown-element {
@@ -217,13 +220,11 @@ h1 {
   width: 50vw;
 }
 
-
 /* Selection Panel */
 #selection-panel {
   background-color: var(--white); 
   width: 80vw;
 }
-
 
 /* Loading Screen */
 
@@ -251,38 +252,51 @@ h1 {
 .selected-character-box {
   border: 0.6em solid var(--black);
   min-width: 300px;
-  width: 25%;
+  width: 20%;
   margin-right: -.6em;
   margin-bottom: -.6em;
-  height: 50%;
-}
-
-.selected-character-box .content {
-  margin: auto;
+  /* height: 50%; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+
+.selected-character-box .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
   position: relative;
-  height: 100%;
 }
 
 .selected-character-box .content .name-box {
   position:relative;
-  right: 4%;
+  /* right: 4%; */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 5em;
+  height: 7em;
 }
 
 .selected-character-box .content img {
-  width: 50%;
+  width: 30%;
   height: auto;
+}
+
+.Player-Num {
+  position: relative; 
+  left: 3%;
+  margin-bottom: 0; 
+  margin-top: 5px; 
+  padding-left: 10px;
+  font-size: 36px;
 }
 
 #results-screen {
   display: flex;
+  height: calc(100vh-4em);
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -290,11 +304,31 @@ h1 {
 
 .results-container {
   width: 80%;
-  min-height: 80vh;
-  height: 70%;
+  /* min-height: 80vh; */
+  /* height: 70%; */
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
   
 }
+
+.char-name {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0% 21%, 100% 0, 100% 100%, 0 100%);
+}
+
+.char-name-border {
+  width: 101%;
+  height: 40px;
+  background-color:black;
+  position: relative;
+  /* right: 2%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 60%, 100% 0%, 100% 40%, 0% 100%);
+  margin-bottom: -30px;
+}
+

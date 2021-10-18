@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import img from '../assets/background.png'
 
 const playerColors = {
   1: 'red',
@@ -18,14 +17,21 @@ function SelectedCharacter (props) {
 
   return (
     <div
-      className='selected-character-box parallelogram'
-      style={{ backgroundColor: 'var(--' + playerColors[playerNum] + ')' }}
+      className='selected-character-box'
+      style={{
+        backgroundColor: 'var(--' + playerColors[playerNum] + ')',
+        display: 'inline-block',
+        transform: 'none',
+        margin: '5px'
+      }}
     >
-      <h2 style={{ position: 'absolute', left: '3%' }}>P{playerNum}</h2>
-      <div className="content ">
+      <h2 className="Player-Num">P{playerNum}</h2>
+
+      <div className="content">
         <img src={characterImgUrl}/>
-        <div className="name-box parallelogram" style={{ width: '100%', backgroundColor: 'var(--orange)' }}>
-          <h1>{characterName}</h1>
+        <div className="char-name-border"></div>
+        <div className="name-box char-name" style={{ width: '100%', backgroundColor: 'var(--beige)' }}>
+          <h1 style={{ color: 'black', fontSize: '32px', paddingTop: '.5em', fontWeight: 'normal' }}>{characterName}</h1>
         </div>
       </div>
     </div>
@@ -33,7 +39,9 @@ function SelectedCharacter (props) {
 }
 
 SelectedCharacter.propTypes = {
-  children: PropTypes.any
+  characterName: PropTypes.string,
+  characterImgUrl: PropTypes.string,
+  playerNum: PropTypes.number
 }
 
 export default SelectedCharacter

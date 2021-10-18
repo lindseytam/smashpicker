@@ -4,7 +4,7 @@ import SelectionScreen from './pages/SelectionScreen'
 import ResultScreen from './pages/ResultScreen'
 import FirebaseConnector from './FirebaseConnector/FirebaseConnector'
 
-function AppComponent (props) {
+function AppComponent () {
   const [onSelectionScreen, setOnSelectionScreen] = useState(true)
   const [numPlayers, setNumPlayers] = useState(4)
   const [theme, setTheme] = useState('All Characters')
@@ -51,16 +51,19 @@ function AppComponent (props) {
         />
     </React.Fragment>)
   } else {
-    content = <ResultScreen
-                numPlayers={numPlayers}
-                theme={theme}
-                chosenChars={chosenChars}
-                setChosenChars={setChosenChars}
-                omitChars={omitChars}
-                tagData={tagData}
-                unique={unique}
-                charData={charData}
-              />
+    content = (
+      <ResultScreen
+        numPlayers={numPlayers}
+        theme={theme}
+        chosenChars={chosenChars}
+        setChosenChars={setChosenChars}
+        omitChars={omitChars}
+        tagData={tagData}
+        unique={unique}
+        charData={charData}
+        setOnSelectionScreen={setOnSelectionScreen}
+      />
+    )
   }
   return (
   <Background>
