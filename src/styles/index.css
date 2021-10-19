@@ -64,10 +64,6 @@ code {
     monospace;
 }
 
-.outline {
-  margin: 30px;
-}
-
 .uppercase {
   text-transform: uppercase;
 }
@@ -82,6 +78,7 @@ h1 {
 .outline {
   -webkit-text-stroke: 0.05em var(--black);
   text-shadow: -0.1em 0.1em 0px var(--black);
+  margin: 30px;
 }
 
 .drop-shadow {
@@ -175,37 +172,6 @@ h1 {
   transform: translate(-50%, -50%);
 }
 
-.bordered {
-  border-radius: .2rem;
-  border: 0.2em solid var(--black);
-}
-
-.dropdown-content {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--white);
-  min-width: 160px;
-  overflow: auto;
-  z-index: 1;
-  box-shadow: -0.1em 0.1em 0 var(--black);
-  transition: max-height .25s ease-out;
-  max-height: 500px;
-  overflow-y: scroll;
-}
-
-.dropdown-content .dropdown-element {
-  color: black;
-  padding: 1em;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-element:hover {
-  cursor: pointer;
-  background-color: var(--grey);
-}
-
 /* Background Styles */
 #app-background #background-bar {
   position: absolute; 
@@ -225,12 +191,6 @@ h1 {
   right: 0;
   z-index: -2;
   width: 50vw;
-}
-
-/* Selection Panel */
-#selection-panel {
-  background-color: var(--white); 
-  width: 80vw;
 }
 
 /* Loading Screen */
@@ -263,28 +223,4 @@ h1 {
 
 .Suggestions-Content > a {
   color: white;
-}
-
-/* MOBILE CSS */
-@media screen and (max-width: 767px) {
-
-  body {
-    background-color: white;
-    overflow-x: hidden !important;
-  }
-
-  #selection-panel {
-    background-color: transparent;
-    border: none;
-  }
-
-  .App-header {
-    width: 100%;
-  }
-
-  .outline {
-    margin: 5px;
-    font-size: 3em;
-    text-align: center;
-  }
 }
