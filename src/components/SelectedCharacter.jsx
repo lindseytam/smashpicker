@@ -15,26 +15,55 @@ const playerColors = {
 function SelectedCharacter (props) {
   const { characterName, characterImgUrl, playerNum, screenSize } = props
 
-  return (
-    <div
-      className='selected-character-box'
-      style={{
-        backgroundColor: 'var(--' + playerColors[playerNum] + ')',
-        display: 'inline-block',
-        transform: 'none',
-        margin: '5px'
-      }}
-    >
-      <h2 className="Player-Num">P{playerNum}</h2>
+  const desktopView = () => {
+    return (
+      <div
+        className='selected-character-box selection'
+        style={{
+          backgroundColor: 'var(--' + playerColors[playerNum] + ')'
+        }}
+      >
+        <h2 className="Player-Num">P{playerNum}</h2>
 
-      <div className="content">
-        <img src={characterImgUrl}/>
-        <div className="char-name-border"></div>
-        <div className="name-box char-name" style={{ width: '100%', backgroundColor: 'var(--beige)' }}>
-          <h1 style={{ color: 'black', fontSize: '32px', paddingTop: '.5em', fontWeight: 'normal' }}>{characterName}</h1>
+        <div className="content">
+          <img src={characterImgUrl}/>
+          <div className="char-name-border"/>
+          <div className="name-box char-name">
+            <h1 className="Selected-Char-Name">{characterName}</h1>
+          </div>
         </div>
       </div>
-    </div>
+    )
+  }
+
+  const mobileView = () => {
+    return (
+      <div className="Selected-Char">
+        <h2 className="Player-Num">P{playerNum}</h2>
+        <div className="parallelogram drop-shadow">
+          <div
+            className='selected-character-box selection'
+            style={{
+              backgroundColor: 'var(--' + playerColors[playerNum] + ')'
+            }}
+          >
+            <div className="content">
+              <img src={characterImgUrl}/>
+              {/* <div className="char-name-border"/> */}
+                {/* <div className="name-box char-name">
+                  <h1 className="Selected-Char-Name">{characterName}</h1>
+                </div> */}
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <>
+    {screenSize === 'mobile' ? mobileView() : desktopView()}
+    </>
   )
 }
 

@@ -59,6 +59,12 @@
     height: auto;
 }
 
+.selection {
+    display: inline-block;
+    transform: none;
+    margin: 5px
+}
+
 .Player-Num {
     position: relative; 
     left: 3%;
@@ -86,6 +92,18 @@
     margin-bottom: -30px;
 }
 
+.Selected-Char-Name {
+    color: black;
+    font-size: 32px;
+    padding-top: .5em;
+    font-weight: normal;
+}
+
+.name-box.char-name {
+    width: 100%;
+    background-color: var(--beige)
+}
+
 /* MOBILE CSS */
 @media screen and (max-width: 767px) {
     .Result-Buttons-Container{
@@ -106,5 +124,27 @@
 
     .results-container {
         margin: 0 auto;
+        display: inline;
     }
+    
+    .Player-Num {
+        color: black;
+        margin: auto;
+        left: 0;
+    }
+
+    .Selected-Char {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .Selected-Char > .parallelogram.drop-shadow {
+        margin-right: -20px;
+        padding-top: 20px;
+    }
+
+    .selected-character-box .content .name-box {
+        height: auto;
+    }
+
 }
