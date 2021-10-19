@@ -11,7 +11,6 @@ function Generate (props) {
       removeInvalid(Object.keys(charData[0]))
     } else if (charData.length !== 0 && theme === 'Random Theme') { // user chose random theme
       const randomTheme = chooseChar(Object.keys(tagData[0]))
-      console.log('randomTheme=', randomTheme)
       removeInvalid(tagData[0][randomTheme])
     } else if (charData.length !== 0) { removeInvalid(tagData[0][theme]) } // user chose firebase theme
   }
