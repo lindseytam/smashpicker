@@ -1,10 +1,13 @@
 /* MOBILE CSS */
 @media screen and (max-width: 767px) {
 
-    body {
-      background-color: white;
-      overflow-x: hidden !important;
-      overflow-y: scroll !important;
+    html,body{
+        overflow-x: hidden !important;
+        overflow-y: scroll !important;
+        background-color: white;
+        margin: 0;
+        width: 100%;
+        position: fixed;
     }
   
     #selection-panel {
