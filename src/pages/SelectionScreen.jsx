@@ -6,9 +6,10 @@ import CharactersGrid from '../components/CharactersGrid'
 import SplashScreen from './SplashScreen'
 import Generate from '../components/Generate'
 import Error from './../components/Error'
+import './../styles/SelectionScreen.css'
 
 function SelectionScreen (props) {
-  const { theme, numPlayers, unique, setOnSelectionScreen, setNumPlayers, setTheme, setUnique, charData, tagData, omitChars, setOmitChars, chosenChars, setChosenChars } = props
+  const { theme, numPlayers, unique, setOnSelectionScreen, setNumPlayers, setTheme, setUnique, charData, tagData, omitChars, setOmitChars, chosenChars, setChosenChars, screenSize } = props
   const [activeDropdown, setActiveDropdown] = useState(null)
   const [options, setOptions] = useState(['Random Theme', 'All Characters'])
   const [loaded, setLoaded] = useState((charData.length !== 0))
@@ -52,8 +53,13 @@ function SelectionScreen (props) {
         }
       </>
     }
-    <div id="selection-panel" className="parallelogram bordered drop-shadow center" style={{ display: loaded ? 'block' : 'none' }}>
-      <div className="panel-contents" style={{ display: 'flex', height: '40rem', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center' }}>
+    <div
+      id="selection-panel"
+      className={(screenSize === 'mobile') ? 'bordered drop-shadow' : 'parallelogram bordered drop-shadow center' }
+      style={{ display: loaded ? 'block' : 'none' }}
+    >
+      {screenSize}
+      <div className="panel-contents">
         <div id="button-bar">
           <DropdownButton name="playersDropdown" activeDropdown={activeDropdown === 'playersDropdown'} setActiveDropdown={setActiveDropdown} options={['1 Player', '2 Players', '3 Players', '4 Players', '5 Players', '6 Players', '7 Players', '8 Players']} onChange={playersOnSelect}>
             {`${numPlayers} ${numPlayers > 1 ? 'Players' : 'Player'}`}
@@ -84,6 +90,7 @@ function SelectionScreen (props) {
           >
           Generate
         </Button>
+        <div className="spacer"/>
       </div>
     </div>
     </React.Fragment>)
@@ -102,7 +109,8 @@ SelectionScreen.propTypes = {
   omitChars: PropTypes.array,
   setOmitChars: PropTypes.func,
   chosenChars: PropTypes.array,
-  setChosenChars: PropTypes.func
+  setChosenChars: PropTypes.func,
+  screenSize: PropTypes.string
 }
 
 export default SelectionScreen

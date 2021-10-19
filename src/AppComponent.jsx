@@ -4,6 +4,7 @@ import SelectionScreen from './pages/SelectionScreen'
 import ResultScreen from './pages/ResultScreen'
 import FirebaseConnector from './FirebaseConnector/FirebaseConnector'
 import './styles/Devices/Mobile.css'
+import './styles/SelectionScreen.css'
 
 function AppComponent () {
   const [onSelectionScreen, setOnSelectionScreen] = useState(true)
@@ -14,6 +15,19 @@ function AppComponent () {
   const [omitChars, setOmitChars] = useState([]) // tracks which chars to omit
   const [chosenChars, setChosenChars] = useState([]) // tracks which chars are chosen
   const [unique, setUnique] = useState(true)
+
+  const getScreenSize = () => {
+    const width = window.innerWidth
+    const height = window.innerHeight
+    if (width < 768 || height < 450) return 'mobile'
+    else if (width < 1367) return 'tablet'
+    else return 'desktop'
+  }
+
+  const [screenSize, setScreenSize] = useState(getScreenSize)
+
+  window.addEventListener(
+    'resize', function () { setScreenSize(getScreenSize) }, true)
 
   // check if there is enough options for all unique chars
   const checkUnique = () => {
@@ -69,6 +83,7 @@ function AppComponent () {
           setOmitChars={handleOmittedChars}
           chosenChars={chosenChars}
           setChosenChars={setChosenChars}
+          screenSize={screenSize}
         />
     </React.Fragment>)
   } else {
@@ -83,6 +98,7 @@ function AppComponent () {
         unique={unique}
         charData={charData}
         setOnSelectionScreen={setOnSelectionScreen}
+        screenSize={screenSize}
       />
     )
   }
