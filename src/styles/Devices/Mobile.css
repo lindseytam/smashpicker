@@ -4,7 +4,7 @@
     html,body{
         overflow-x: hidden !important;
         overflow-y: scroll !important;
-        background-color: white;
+        background-color: black;
         margin: 0;
         width: 100%;
         position: fixed;
@@ -34,21 +34,7 @@
         text-align: center;
     }
 
-    .dropdown-button {
-        width: 90%
-    }
-
     #app-background {
         display: none;
-    }
-
-    .uppercase.extrabold.italic {
-        margin-bottom: 30px;
-    }
-
-    .dropdown-content {
-        min-width: none;
-        width: 90%;
-        max-height: 300px;
     }
   }

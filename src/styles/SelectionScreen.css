@@ -42,12 +42,36 @@
     border: 0.2em solid var(--black);
 }
 
+.container {
+    background-color: white;
+    height: auto;
+    width: 100% !important;
+}
+
 @media screen and (max-width: 767px) {
     .panel-contents {
         height: auto;
+        width: 90%;
+        margin: 0 auto;
     }
 
-    .spacer {
-        height: 150px;
+    .dropdown-content {
+        min-width: none;
+        width: 90%;
+        max-height: 300px;
+    }
+
+    .dropdown-button {
+        width: 90%;
+    }
+
+    #selection-panel {
+        border: none;
+        margin: auto;
+        margin-bottom: 100px;
+      }
+    
+    .uppercase.extrabold.italic {
+        top: 2em !important;
     }
 }
