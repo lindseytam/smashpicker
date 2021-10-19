@@ -4,6 +4,7 @@
     body {
       background-color: white;
       overflow-x: hidden !important;
+      overflow-y: scroll !important;
     }
   
     #selection-panel {
@@ -23,5 +24,21 @@
       margin: 5px;
       font-size: 3em;
       text-align: center;
+    }
+
+    #button-bar {
+        text-align: center;
+    }
+
+    .dropdown-button {
+        width: 90%
+    }
+
+    #app-background {
+        display: none;
+    }
+
+    .uppercase.extrabold.italic {
+        margin-bottom: 30px;
     }
   }
