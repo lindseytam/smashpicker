@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 function Button (props) {
@@ -44,12 +44,16 @@ function ToggleButton (props) {
     toggleVal()
   }
 
+  useEffect(() => {
+    setEnabled(curVal)
+  }, [curVal])
+
   return (
-      <button style={{ ...style, display: 'inline' }} onClick={toggleButton} className={`dropdown-button button-${enabled ? 'green' : 'red'} button bordered drop-shadow parallelogram`}>
-        <span>
-          {children}
-        </span>
-      </button>)
+    <button style={{ ...style, display: 'inline' }} onClick={toggleButton} className={`dropdown-button button-${enabled ? 'green' : 'red'} button bordered drop-shadow parallelogram`}>
+      <span>
+        {children}
+      </span>
+    </button>)
 }
 
 const basePropTypes = {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Background from './components/Background'
 import SelectionScreen from './pages/SelectionScreen'
 import ResultScreen from './pages/ResultScreen'
@@ -8,11 +8,18 @@ function AppComponent () {
   const [onSelectionScreen, setOnSelectionScreen] = useState(true)
   const [numPlayers, setNumPlayers] = useState(4)
   const [theme, setTheme] = useState('All Characters')
-  const [unique, setUnique] = useState(true)
-  const [charData, setCharData] = useState([])
-  const [tagData, setTagData] = useState([])
-  const [omitChars, setOmitChars] = useState([])
+  const [charData, setCharData] = useState([]) // data on all chars
+  const [tagData, setTagData] = useState([]) // data on all chars in a theme
+  const [omitChars, setOmitChars] = useState([]) // tracks which chars to omit
   const [chosenChars, setChosenChars] = useState([]) // tracks which chars are chosen
+  const [unique, setUnique] = useState(true)
+
+  const checkUnique = () => {
+    const numChosen = chosenChars.length
+    if (tagData.length === 1) {
+      return numChosen !== 0 && numChosen <= tagData[0][theme].length
+    }
+  }
 
   const handleCharChange = (event) => {
     setCharData(event)
@@ -26,6 +33,11 @@ function AppComponent () {
     setOmitChars(event)
   }
   let content = null
+
+  useEffect(() => {
+    const isUnique = checkUnique()
+    setUnique((isUnique === undefined) ? true : isUnique)
+  }, [theme])
 
   if (onSelectionScreen) {
     content = (
