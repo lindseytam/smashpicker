@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { Button } from '../components/Button'
 import Generate from '../components/Generate'
 import SelectedCharacter from '../components/SelectedCharacter'
+import './../styles/ResultScreen.css'
+
 function ResultScreen (props) {
   const { numPlayers, theme, chosenChars, setChosenChars, omitChars, tagData, unique, charData, setOnSelectionScreen } = props
   const [shuffle, setShuffle] = useState(false)

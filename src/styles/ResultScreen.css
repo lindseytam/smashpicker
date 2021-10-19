@@ -1,0 +1,81 @@
+#results-screen {
+    display: flex;
+    height: calc(100vh-4em);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.results-container {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Selected Character Box */
+.selected-character-box {
+    border: 0.6em solid var(--black);
+    min-width: 300px;
+    width: 20%;
+    margin-right: -.6em;
+    margin-bottom: -.6em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.selected-character-box .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    position: relative;
+}
+  
+.selected-character-box .content .name-box {
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7em;
+}
+  
+.selected-character-box .content img {
+    width: 30%;
+    height: auto;
+}
+
+.Player-Num {
+    position: relative; 
+    left: 3%;
+    margin-bottom: 0; 
+    margin-top: 5px; 
+    padding-left: 10px;
+    font-size: 36px;
+}
+
+.char-name {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0% 21%, 100% 0, 100% 100%, 0 100%);
+}
+  
+.char-name-border {
+    width: 101%;
+    height: 40px;
+    background-color:black;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 60%, 100% 0%, 100% 40%, 0% 100%);
+    margin-bottom: -30px;
+}
