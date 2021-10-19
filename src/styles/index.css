@@ -246,3 +246,14 @@ h1 {
     transform: rotate(360deg);
   }
 }
+
+.Suggestions-Content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 30px;
+}
+
+.Suggestions-Content > a {
+  color: white;
+}
