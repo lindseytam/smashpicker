@@ -13,7 +13,7 @@ const playerColors = {
 }
 
 function SelectedCharacter (props) {
-  const { characterName, characterImgUrl, playerNum } = props
+  const { characterName, characterImgUrl, playerNum, screenSize } = props
 
   return (
     <div
@@ -41,7 +41,8 @@ function SelectedCharacter (props) {
 SelectedCharacter.propTypes = {
   characterName: PropTypes.string,
   characterImgUrl: PropTypes.string,
-  playerNum: PropTypes.number
+  playerNum: PropTypes.number,
+  screenSize: PropTypes.string
 }
 
 export default SelectedCharacter

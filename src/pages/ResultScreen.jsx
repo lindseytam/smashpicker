@@ -29,6 +29,7 @@ function ResultScreen (props) {
             characterName={charData[0][char].Name}
             characterImgUrl={charData[0][char].Img}
             playerNum={i + 1}
+            screenSize={screenSize}
           />
         )
       )
