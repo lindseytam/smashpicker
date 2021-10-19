@@ -44,4 +44,10 @@
     .uppercase.extrabold.italic {
         margin-bottom: 30px;
     }
+
+    .dropdown-content {
+        min-width: none;
+        width: 90%;
+        max-height: 300px;
+    }
   }
