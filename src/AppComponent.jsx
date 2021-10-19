@@ -14,10 +14,14 @@ function AppComponent () {
   const [chosenChars, setChosenChars] = useState([]) // tracks which chars are chosen
   const [unique, setUnique] = useState(true)
 
+  // check if there is enough options for all unique chars
   const checkUnique = () => {
     const numChosen = chosenChars.length
     if (tagData.length === 1) {
-      return numChosen !== 0 && numChosen <= tagData[0][theme].length
+      const numAvailable = (theme === 'Random Theme' || theme === 'All Characters')
+        ? Object.keys(charData[0]).length
+        : tagData[0][theme].length
+      return numChosen !== 0 && numChosen <= numAvailable
     }
   }
 
@@ -35,8 +39,12 @@ function AppComponent () {
   let content = null
 
   useEffect(() => {
-    const isUnique = checkUnique()
-    setUnique((isUnique === undefined) ? true : isUnique)
+    if (theme === 'Random Theme') {
+      setUnique(false)
+    } else {
+      const isUnique = checkUnique()
+      setUnique((isUnique === undefined) ? true : isUnique)
+    }
   }, [theme])
 
   if (onSelectionScreen) {
