@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals'
 ReactDOM.render(
   <React.StrictMode>
     <header className="App-header">
-      <h1 className="outline" style={{ margin: '30px' }}>Smash Picker</h1>
+      <h1 className="outline">Smash Picker</h1>
     </header>
     <AppComponent />
   </React.StrictMode>,

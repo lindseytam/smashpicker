@@ -3,6 +3,7 @@ import Background from './components/Background'
 import SelectionScreen from './pages/SelectionScreen'
 import ResultScreen from './pages/ResultScreen'
 import FirebaseConnector from './FirebaseConnector/FirebaseConnector'
+import './styles/Devices/Mobile.css'
 
 function AppComponent () {
   const [onSelectionScreen, setOnSelectionScreen] = useState(true)

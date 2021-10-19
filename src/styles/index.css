@@ -54,6 +54,7 @@ body {
   background-color: #282828;
   height: 100vh;
   max-width: 100vw;
+  min-width: 100vw;
   overflow-y: hidden;
   overflow-x: hidden;
 }
@@ -61,6 +62,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.outline {
+  margin: 30px;
 }
 
 .uppercase {
@@ -258,4 +263,28 @@ h1 {
 
 .Suggestions-Content > a {
   color: white;
+}
+
+/* MOBILE CSS */
+@media screen and (max-width: 767px) {
+
+  body {
+    background-color: white;
+    overflow-x: hidden !important;
+  }
+
+  #selection-panel {
+    background-color: transparent;
+    border: none;
+  }
+
+  .App-header {
+    width: 100%;
+  }
+
+  .outline {
+    margin: 5px;
+    font-size: 3em;
+    text-align: center;
+  }
 }

@@ -1,0 +1,27 @@
+/* MOBILE CSS */
+@media screen and (max-width: 767px) {
+
+    body {
+      background-color: white;
+      overflow-x: hidden !important;
+    }
+  
+    #selection-panel {
+      background-color: transparent;
+      border: none;
+    }
+
+    .drop-shadow {
+        box-shadow: none;
+    }
+  
+    .App-header {
+      width: 100%;
+    }
+  
+    .outline {
+      margin: 5px;
+      font-size: 3em;
+      text-align: center;
+    }
+  }
