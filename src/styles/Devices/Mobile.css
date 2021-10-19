@@ -13,6 +13,7 @@
     #selection-panel {
       background-color: transparent;
       border: none;
+      margin: auto;
     }
 
     .drop-shadow {
