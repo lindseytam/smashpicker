@@ -1,4 +1,4 @@
-#results-screen {
+.Results-Screen {
     display: flex;
     height: calc(100vh-4em);
     flex-direction: column;
@@ -16,6 +16,12 @@
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.res {
+    width: 80vw; 
+    padding: 10px;
+    background-color: black;
 }
 
 /* Selected Character Box */
@@ -78,4 +84,27 @@
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     clip-path: polygon(0 60%, 100% 0%, 100% 40%, 0% 100%);
     margin-bottom: -30px;
+}
+
+/* MOBILE CSS */
+@media screen and (max-width: 767px) {
+    .Result-Buttons-Container{
+        display: flex;
+        top: 2.5em;
+        position: relative;
+        justify-content: space-evenly;
+    }
+
+    .Results-Mobile-Screen {
+        position: relative;
+    }
+
+    #results-screen {
+        width: 100%;
+        margin-bottom: 200px;
+    }
+
+    .results-container {
+        margin: 0 auto;
+    }
 }

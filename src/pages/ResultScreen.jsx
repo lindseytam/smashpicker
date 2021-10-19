@@ -6,7 +6,7 @@ import SelectedCharacter from '../components/SelectedCharacter'
 import './../styles/ResultScreen.css'
 
 function ResultScreen (props) {
-  const { numPlayers, theme, chosenChars, setChosenChars, omitChars, tagData, unique, charData, setOnSelectionScreen } = props
+  const { numPlayers, theme, chosenChars, setChosenChars, omitChars, tagData, unique, charData, setOnSelectionScreen, screenSize } = props
   const [shuffle, setShuffle] = useState(false)
 
   // helper function to wait X seconds
@@ -37,11 +37,18 @@ function ResultScreen (props) {
 
   return (
     <>
-      <div id="results-screen">
-        <div className="parallelogram results-container bordered drop-shadow" style={{ width: '80vw', padding: '10px', backgroundColor: 'black' }}>
+      <div
+        id="results-screen"
+        className={(screenSize === 'mobile') ? 'container' : 'Results-Screen'}
+      >
+        <div
+          className={ (screenSize === 'mobile')
+            ? 'results-container drop-shadow'
+            : 'parallelogram results-container bordered drop-shadow res'}
+        >
           {renderImg()}
         </div>
-        <div>
+        <div className="Result-Buttons-Container">
           <Button onClick={() => setOnSelectionScreen(true)} className="uppercase extrabold"><h3>Back</h3></Button>
           <Button onClick={handleShuffle} className="uppercase extrabold" color="golden">Shuffle</Button>
         </div>
@@ -71,7 +78,8 @@ ResultScreen.propTypes = {
   tagData: PropTypes.array,
   unique: PropTypes.bool,
   charData: PropTypes.Array,
-  setOnSelectionScreen: PropTypes.func
+  setOnSelectionScreen: PropTypes.func,
+  screenSize: PropTypes.string
 }
 
 export default ResultScreen
