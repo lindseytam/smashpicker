@@ -31,6 +31,10 @@
     text-decoration: none;
     display: block;
 }
+
+.uppercase.extrabold.italic {
+    position: relative;
+}
   
 .dropdown-element:hover {
     cursor: pointer;
@@ -69,9 +73,5 @@
         border: none;
         margin: auto;
         margin-bottom: 200px;
-    }
-    
-    .uppercase.extrabold.italic {
-        top: 2em !important;
     }
 }

@@ -47,7 +47,7 @@ function SelectionScreen (props) {
         { error &&
           <>
             <div id="background-blur"/>
-            <Error error={error} setError={setError} />
+            <Error screenSize={screenSize} setError={setError} />
           </>
         }
       </>
@@ -87,10 +87,7 @@ function SelectionScreen (props) {
           className="uppercase extrabold italic"
           color="golden"
           onClick={() => handleScreenChange()}
-          style={{
-            position: 'relative',
-            top: '1.5em'
-          }}
+          style={{ top: '2em' }}
           >
           Generate
         </Button>
