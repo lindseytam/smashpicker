@@ -50,7 +50,7 @@ function ResultScreen (props) {
           {renderImg()}
         </div>
         <div className="Result-Buttons-Container">
-          <Button onClick={() => setOnSelectionScreen(true)} className="uppercase extrabold"><h3>Back</h3></Button>
+          <Button onClick={() => setOnSelectionScreen(true)} className="uppercase extrabold"><span>Back</span></Button>
           <Button onClick={handleShuffle} className="uppercase extrabold" color="golden">Shuffle</Button>
         </div>
       </div>
