@@ -28,7 +28,7 @@ function SelectedCharacter (props) {
         <div className="content">
           <img src={characterImgUrl}/>
           <div className="char-name-border"/>
-          <div className="name-box char-name">
+          <div className="name-box desktop-slant">
             <h1 className="Selected-Char-Name">{characterName}</h1>
           </div>
         </div>
@@ -49,10 +49,10 @@ function SelectedCharacter (props) {
           >
             <div className="content">
               <img src={characterImgUrl}/>
-              {/* <div className="char-name-border"/> */}
-                {/* <div className="name-box char-name">
+              <div className="name-box mobile-slant"/>
+                <div className="name-box ">
                   <h1 className="Selected-Char-Name">{characterName}</h1>
-                </div> */}
+                </div>
             </div>
           </div>
         </div>

@@ -74,7 +74,7 @@
     font-size: 36px;
 }
 
-.char-name {
+.desktop-slant {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     clip-path: polygon(0% 21%, 100% 0, 100% 100%, 0 100%);
 }
@@ -99,9 +99,13 @@
     font-weight: normal;
 }
 
-.name-box.char-name {
+.name-box {
+    background-color: var(--beige);
+    width: auto;
+}
+
+.name-box.desktop-slant {
     width: 100%;
-    background-color: var(--beige)
 }
 
 /* MOBILE CSS */
@@ -126,7 +130,7 @@
         margin: 0 auto;
         display: inline;
     }
-    
+
     .Player-Num {
         color: black;
         margin: auto;
@@ -139,12 +143,41 @@
     }
 
     .Selected-Char > .parallelogram.drop-shadow {
-        margin-right: -20px;
+        margin-right: -25px;
         padding-top: 20px;
     }
 
+    .selected-character-box {
+        width: 300px;
+    }
+
     .selected-character-box .content .name-box {
-        height: auto;
+        width: 100%;
+        height: 100;
+        margin-top: -1px;
+    }
+
+    .selected-character-box, .selected-character-box .content{
+        flex-direction: row;
+    }
+
+    .mobile-slant {
+        display: block;
+    }
+
+    .Selected-Char-Name {
+        padding: 10px;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .selected-character-box .content img {
+       padding: 0 20px
+    }
+
+    .mobile-slant {
+        background-color: black;
+        width: 20px !important
     }
 
 }
