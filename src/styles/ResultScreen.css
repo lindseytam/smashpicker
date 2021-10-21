@@ -181,3 +181,32 @@
     }
 
 }
+
+/* TABLET CSS */
+@media screen and (min-width: 768px) {
+
+    .selected-character-box .content .name-box {
+        height: 5em;
+    }
+
+    .selected-character-box {
+        min-width: 200px;
+        width: 10%;
+    }
+    .name-box.desktop-slant {
+        text-align: center;
+    }
+
+    .desktop-slant {
+        clip-path: polygon(0% 30%, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .Selected-Char-Name {
+        font-size: 18px;
+    }
+
+    .Result-Buttons-Container{
+        top: 2em;
+        position: relative;
+    }
+}

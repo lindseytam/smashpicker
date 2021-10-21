@@ -52,6 +52,7 @@
     width: 100% !important;
 }
 
+/* MOBILE CSS */
 @media screen and (max-width: 767px) {
     .panel-contents {
         height: auto;
@@ -75,3 +76,9 @@
         margin-bottom: 200px;
     }
 }
+
+/* TABLET CSS */
+@media screen and (min-width: 768px) {
+
+}
+

@@ -37,3 +37,10 @@
     }
     
 }
+
+/* TABLET CSS */
+@media screen and (min-width: 768px) {
+    .column {
+        width: 8%
+    }
+}
