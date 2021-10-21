@@ -37,22 +37,6 @@ function Generate (props) {
     setChosenChars(chosen)
   }
 
-  // choose a char from a random theme
-  const chooseRandomTheme = () => {
-    const chosen = []
-    let validChars = _.cloneDeep(valid)
-
-    for (let i = 0; i < numPlayers; i++) {
-      const choose = chooseChar(validChars)
-      chosen.push(choose)
-      if (unique) {
-        validChars = validChars.filter(function (e) { return e !== choose })
-      }
-    }
-
-    setChosenChars(chosen)
-  }
-
   // choose a random char from array
   const chooseChar = (chooseFrom) => {
     const index = Math.floor(Math.random() * chooseFrom.length)
