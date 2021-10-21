@@ -19,11 +19,13 @@ function ResultScreen (props) {
   }
 
   const renderImg = () => {
-    const isError = chosenChars.includes(null) || chosenChars.includes(undefined)
+    const isError = chosenChars.includes(null) ||
+      chosenChars.includes(undefined) ||
+      charData[0].length === 0
     if (!isError) {
       return (
         chosenChars.map((char, i) =>
-          (char !== undefined) &&
+          (char !== undefined) && (charData[0][char] !== undefined) &&
            <SelectedCharacter
             key={char}
             characterName={charData[0][char].Name}
