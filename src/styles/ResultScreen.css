@@ -183,7 +183,7 @@
 }
 
 /* TABLET CSS */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1366px) {
 
     .selected-character-box .content .name-box {
         height: 5em;
