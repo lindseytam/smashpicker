@@ -44,3 +44,10 @@
         width: 8%
     }
 }
+
+/* WIDE DESKTOP CSS */
+@media screen and (min-width: 1850px) {
+    .column {
+        width: 5.5%
+    }
+}
