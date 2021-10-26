@@ -51,7 +51,6 @@ function AppComponent () {
   const handleOmittedChars = (event) => {
     setOmitChars(event)
   }
-  let content = null
 
   useEffect(() => {
     if (theme === 'Random Theme') {
@@ -62,49 +61,43 @@ function AppComponent () {
     }
   }, [theme])
 
-  if (onSelectionScreen) {
-    content = (
-    <React.Fragment>
-      <FirebaseConnector
-          setCharData={handleCharChange}
-          setTagData={handleTagChange}
-        />
-        <SelectionScreen
-          numPlayers={numPlayers}
-          theme={theme}
-          unique={unique}
-          setOnSelectionScreen={setOnSelectionScreen}
-          setNumPlayers={setNumPlayers}
-          setTheme={setTheme}
-          setUnique={setUnique}
-          charData={charData}
-          tagData={tagData}
-          omitChars={omitChars}
-          setOmitChars={handleOmittedChars}
-          chosenChars={chosenChars}
-          setChosenChars={setChosenChars}
-          screenSize={screenSize}
-        />
-    </React.Fragment>)
-  } else {
-    content = (
-      <ResultScreen
-        numPlayers={numPlayers}
-        theme={theme}
-        chosenChars={chosenChars}
-        setChosenChars={setChosenChars}
-        omitChars={omitChars}
-        tagData={tagData}
-        unique={unique}
-        charData={charData}
-        setOnSelectionScreen={setOnSelectionScreen}
-        screenSize={screenSize}
-      />
-    )
-  }
   return (
   <Background>
-    {content}
+    {/* {content} */}
+    <FirebaseConnector
+      setCharData={handleCharChange}
+      setTagData={handleTagChange}
+    />
+    <SelectionScreen
+      numPlayers={numPlayers}
+      theme={theme}
+      unique={unique}
+      onSelectionScreen={onSelectionScreen}
+      setOnSelectionScreen={setOnSelectionScreen}
+      setNumPlayers={setNumPlayers}
+      setTheme={setTheme}
+      setUnique={setUnique}
+      charData={charData}
+      tagData={tagData}
+      omitChars={omitChars}
+      setOmitChars={handleOmittedChars}
+      chosenChars={chosenChars}
+      setChosenChars={setChosenChars}
+      screenSize={screenSize}
+    />
+    <ResultScreen
+      numPlayers={numPlayers}
+      theme={theme}
+      chosenChars={chosenChars}
+      setChosenChars={setChosenChars}
+      omitChars={omitChars}
+      tagData={tagData}
+      unique={unique}
+      charData={charData}
+      onSelectionScreen={onSelectionScreen}
+      setOnSelectionScreen={setOnSelectionScreen}
+      screenSize={screenSize}
+    />
   </Background>)
 }
 

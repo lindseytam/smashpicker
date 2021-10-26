@@ -6,8 +6,9 @@ import SelectedCharacter from '../components/SelectedCharacter'
 import './../styles/ResultScreen.css'
 
 function ResultScreen (props) {
-  const { numPlayers, theme, chosenChars, setChosenChars, omitChars, tagData, unique, charData, setOnSelectionScreen, screenSize } = props
+  const { numPlayers, theme, chosenChars, setChosenChars, omitChars, tagData, unique, charData, onSelectionScreen, setOnSelectionScreen, screenSize } = props
   const [shuffle, setShuffle] = useState(false)
+  // const [imgsToLoad, setImgsToLoad] = useState(chosenChars.length)
 
   // helper function to wait X seconds
   const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
@@ -38,16 +39,16 @@ function ResultScreen (props) {
     } else return null
   }
 
+  if (onSelectionScreen) {
+    return <span />
+  }
+
   return (
     <>
       <div
         id="results-screen"
         className={(screenSize === 'mobile') ? 'container' : 'Results-Screen'}
       >
-
-        <div className="parallelogram bordered drop-shadow" style={{ backgroundColor: 'var(--yellow)' }}>
-          <h3 style={{ color: 'var(--black)', padding: '0px 20px' }} >Theme: {theme}</h3>
-        </div>
 
         <div
           className={ (screenSize === 'mobile')
@@ -87,7 +88,8 @@ ResultScreen.propTypes = {
   unique: PropTypes.bool,
   charData: PropTypes.array,
   setOnSelectionScreen: PropTypes.func,
-  screenSize: PropTypes.string
+  screenSize: PropTypes.string,
+  onSelectionScreen: PropTypes.bool
 }
 
 export default ResultScreen

@@ -36,7 +36,6 @@ function CharactersGrid (props) {
       setOmitChars(invalid)
     }
   }
-
   const renderImg = (item) => {
     const imgPath = charData[0][item].Img
     const id = charData[0][item].Name
@@ -49,7 +48,7 @@ function CharactersGrid (props) {
             onClick={clickImg}
             className="Char-Img"
             src={imgPath}
-            onLoad={() => setImagesToLoad(imagesToLoad - 1)}
+            onLoad={() => setImagesToLoad(prevValue => prevValue - 1)}
           />
         </div>
       </div>

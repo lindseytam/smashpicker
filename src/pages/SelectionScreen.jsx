@@ -8,7 +8,7 @@ import Generate from '../components/Generate'
 import Error from './../components/Error'
 
 function SelectionScreen (props) {
-  const { theme, numPlayers, unique, setOnSelectionScreen, setNumPlayers, setTheme, setUnique, charData, tagData, omitChars, setOmitChars, chosenChars, setChosenChars, screenSize } = props
+  const { theme, numPlayers, unique, onSelectionScreen, setOnSelectionScreen, setNumPlayers, setTheme, setUnique, charData, tagData, omitChars, setOmitChars, chosenChars, setChosenChars, screenSize } = props
   const [activeDropdown, setActiveDropdown] = useState(null)
   const [options, setOptions] = useState(['Random Theme', 'All Characters'])
   const [loaded, setLoaded] = useState((charData.length !== 0))
@@ -40,17 +40,13 @@ function SelectionScreen (props) {
   }
 
   return (
-    <React.Fragment>
+    <div style={{ display: onSelectionScreen ? 'block' : 'none' }}>
     {!loaded && <SplashScreen/>}
-    { loaded &&
-      <>
-        { error &&
-          <>
+    { loaded && error &&
+          <React.Fragment>
             <div id="background-blur"/>
             <Error screenSize={screenSize} setError={setError} />
-          </>
-        }
-      </>
+          </React.Fragment>
     }
     <div
       id="selection-panel"
@@ -93,7 +89,7 @@ function SelectionScreen (props) {
         </Button>
       </div>
     </div>
-    </React.Fragment>)
+    </div>)
 }
 
 SelectionScreen.propTypes = {
@@ -110,7 +106,8 @@ SelectionScreen.propTypes = {
   setOmitChars: PropTypes.func,
   chosenChars: PropTypes.array,
   setChosenChars: PropTypes.func,
-  screenSize: PropTypes.string
+  screenSize: PropTypes.string,
+  onSelectionScreen: PropTypes.bool
 }
 
 export default SelectionScreen
