@@ -24,8 +24,6 @@ function CharactersGrid (props) {
     }
   }, [theme])
 
-  const data = (charData.length === 0) ? [] : Object.keys(charData[0])
-
   const clickImg = (e) => {
     // remove from omit list
     if (omitChars.includes(e.target.id)) {
@@ -55,13 +53,13 @@ function CharactersGrid (props) {
           />
         </div>
       </div>
-
     )
   }
+
   return (
     <div className="Char-Grid">
        <div className="row">
-         {data.map((item) => renderImg(item))}
+         {(charData.length === 0) ? [] : Object.keys(charData[0]).map((item) => renderImg(item))}
        </div>
     </div>
   )
