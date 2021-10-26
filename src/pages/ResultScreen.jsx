@@ -14,7 +14,7 @@ function ResultScreen (props) {
 
   const handleShuffle = async () => {
     setShuffle(true)
-    await delay(1000) // wait for one second
+    await delay(100) // wait for .1 second
     setShuffle(false)
   }
 
@@ -44,10 +44,15 @@ function ResultScreen (props) {
         id="results-screen"
         className={(screenSize === 'mobile') ? 'container' : 'Results-Screen'}
       >
+
+        <div className="parallelogram bordered drop-shadow" style={{ backgroundColor: 'var(--yellow)' }}>
+          <h3 style={{ color: 'var(--black)', padding: '0px 20px' }} >Theme: {theme}</h3>
+        </div>
+
         <div
           className={ (screenSize === 'mobile')
             ? 'results-container drop-shadow'
-            : 'parallelogram results-container bordered drop-shadow res'}
+            : 'parallelogram results-container res'}
         >
           {renderImg()}
         </div>
