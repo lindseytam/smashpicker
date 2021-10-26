@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.b55a9cbc.chunk.css",
-    "main.js": "/static/js/main.ad82791e.chunk.js",
-    "main.js.map": "/static/js/main.ad82791e.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.6d198fac.js",
-    "runtime-main.js.map": "/static/js/runtime-main.6d198fac.js.map",
-    "static/js/2.2448ee5c.chunk.js": "/static/js/2.2448ee5c.chunk.js",
-    "static/js/2.2448ee5c.chunk.js.map": "/static/js/2.2448ee5c.chunk.js.map",
-    "static/js/3.6d037184.chunk.js": "/static/js/3.6d037184.chunk.js",
-    "static/js/3.6d037184.chunk.js.map": "/static/js/3.6d037184.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.b55a9cbc.chunk.css.map": "/static/css/main.b55a9cbc.chunk.css.map",
-    "static/js/2.2448ee5c.chunk.js.LICENSE.txt": "/static/js/2.2448ee5c.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/static/media/Urbanist-BoldItalic.55b39af4.woff2",
-    "static/media/background.f3769753.png": "/static/media/background.f3769753.png",
-    "static/media/loading-logo.0fb25ec2.png": "/static/media/loading-logo.0fb25ec2.png"
+    "main.css": "/Smashpicker/static/css/main.a2567e1c.chunk.css",
+    "main.js": "/Smashpicker/static/js/main.8c96afe3.chunk.js",
+    "main.js.map": "/Smashpicker/static/js/main.8c96afe3.chunk.js.map",
+    "runtime-main.js": "/Smashpicker/static/js/runtime-main.724b50a8.js",
+    "runtime-main.js.map": "/Smashpicker/static/js/runtime-main.724b50a8.js.map",
+    "static/js/2.5158c01c.chunk.js": "/Smashpicker/static/js/2.5158c01c.chunk.js",
+    "static/js/2.5158c01c.chunk.js.map": "/Smashpicker/static/js/2.5158c01c.chunk.js.map",
+    "static/js/3.6d037184.chunk.js": "/Smashpicker/static/js/3.6d037184.chunk.js",
+    "static/js/3.6d037184.chunk.js.map": "/Smashpicker/static/js/3.6d037184.chunk.js.map",
+    "index.html": "/Smashpicker/index.html",
+    "static/css/main.a2567e1c.chunk.css.map": "/Smashpicker/static/css/main.a2567e1c.chunk.css.map",
+    "static/js/2.5158c01c.chunk.js.LICENSE.txt": "/Smashpicker/static/js/2.5158c01c.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/Smashpicker/static/media/Urbanist-BoldItalic.55b39af4.woff2",
+    "static/media/background.f3769753.png": "/Smashpicker/static/media/background.f3769753.png",
+    "static/media/loading-logo.0fb25ec2.png": "/Smashpicker/static/media/loading-logo.0fb25ec2.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.6d198fac.js",
-    "static/js/2.2448ee5c.chunk.js",
-    "static/css/main.b55a9cbc.chunk.css",
-    "static/js/main.ad82791e.chunk.js"
+    "static/js/runtime-main.724b50a8.js",
+    "static/js/2.5158c01c.chunk.js",
+    "static/css/main.a2567e1c.chunk.css",
+    "static/js/main.8c96afe3.chunk.js"
   ]
 }
