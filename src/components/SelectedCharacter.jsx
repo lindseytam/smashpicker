@@ -13,7 +13,7 @@ const playerColors = {
 }
 
 function SelectedCharacter (props) {
-  const { characterName, characterImgUrl, playerNum, screenSize } = props
+  const { characterName, onImgLoad, characterImgUrl, playerNum, screenSize } = props
 
   const desktopView = () => {
     return (
@@ -26,7 +26,7 @@ function SelectedCharacter (props) {
         <h2 className="Player-Num">P{playerNum}</h2>
 
         <div className="content">
-          <img src={characterImgUrl}/>
+          <img src={characterImgUrl} onLoad={onImgLoad}/>
           <div className="char-name-border"/>
           <div className="name-box desktop-slant">
             <h1 className="Selected-Char-Name">{characterName}</h1>
@@ -48,7 +48,7 @@ function SelectedCharacter (props) {
             }}
           >
             <div className="content">
-              <img src={characterImgUrl}/>
+              <img src={characterImgUrl} onLoad={onImgLoad}/>
               <div className="name-box mobile-slant"/>
                 <div className="name-box ">
                   <h1 className="Selected-Char-Name">{characterName}</h1>
@@ -71,7 +71,8 @@ SelectedCharacter.propTypes = {
   characterName: PropTypes.string,
   characterImgUrl: PropTypes.string,
   playerNum: PropTypes.number,
-  screenSize: PropTypes.string
+  screenSize: PropTypes.string,
+  onImgLoad: PropTypes.func
 }
 
 export default SelectedCharacter

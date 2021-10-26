@@ -1,6 +1,6 @@
 .Results-Screen {
     display: flex;
-    height: calc(100vh-4em);
+    height: calc(100vh - 4em);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -55,7 +55,7 @@
 }
   
 .selected-character-box .content img {
-    width: 30%;
+    min-width: 30%;
     height: auto;
 }
 

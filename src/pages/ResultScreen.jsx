@@ -1,14 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { Button } from '../components/Button'
 import Generate from '../components/Generate'
 import SelectedCharacter from '../components/SelectedCharacter'
 import './../styles/ResultScreen.css'
+import logo from '../assets/loading-logo.png'
 
 function ResultScreen (props) {
   const { numPlayers, theme, chosenChars, setChosenChars, omitChars, tagData, unique, charData, onSelectionScreen, setOnSelectionScreen, screenSize } = props
   const [shuffle, setShuffle] = useState(false)
-  // const [imgsToLoad, setImgsToLoad] = useState(chosenChars.length)
+  const [imgsToLoad, setImgsToLoad] = useState(chosenChars.length - 1)
+
+  useEffect(() => {
+    setImgsToLoad(chosenChars.length - 1)
+  }, [chosenChars])
 
   // helper function to wait X seconds
   const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
@@ -17,6 +22,10 @@ function ResultScreen (props) {
     setShuffle(true)
     await delay(100) // wait for .1 second
     setShuffle(false)
+  }
+
+  const onImgLoad = () => {
+    setImgsToLoad(prevValue => prevValue - 1)
   }
 
   const renderImg = () => {
@@ -29,6 +38,7 @@ function ResultScreen (props) {
           (char !== undefined) && (charData[0][char] !== undefined) &&
            <SelectedCharacter
             key={char}
+            onImgLoad={onImgLoad}
             characterName={charData[0][char].Name}
             characterImgUrl={charData[0][char].Img}
             playerNum={i + 1}
@@ -49,8 +59,9 @@ function ResultScreen (props) {
         id="results-screen"
         className={(screenSize === 'mobile') ? 'container' : 'Results-Screen'}
       >
-
+        {imgsToLoad > 0 && screenSize !== 'mobile' && <img src={logo} className="loading-logo" alt="logo" />}
         <div
+          style={{ display: imgsToLoad <= 0 ? 'flex' : 'none' }}
           className={ (screenSize === 'mobile')
             ? 'results-container drop-shadow'
             : 'parallelogram results-container res'}
