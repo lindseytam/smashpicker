@@ -59,9 +59,12 @@ function ResultScreen (props) {
         id="results-screen"
         className={(screenSize === 'mobile') ? 'container' : 'Results-Screen'}
       >
-        {imgsToLoad > 0 && screenSize !== 'mobile' && <img src={logo} className="loading-logo" alt="logo" />}
+        {imgsToLoad > 0 && screenSize !== 'mobile' && <img src={logo} className="loading-logo" alt="logo" style={{ position: 'absolute' }} />}
         <div
-          style={{ display: imgsToLoad <= 0 ? 'flex' : 'none' }}
+          style={{
+            // display: imgsToLoad <= 0 ? 'flex' : 'none',
+            opacity: imgsToLoad <= 0 ? 1 : 0
+          }}
           className={ (screenSize === 'mobile')
             ? 'results-container drop-shadow'
             : 'parallelogram results-container res'}
