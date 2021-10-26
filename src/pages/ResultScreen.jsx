@@ -73,14 +73,14 @@ function ResultScreen (props) {
 }
 
 ResultScreen.propTypes = {
-  numPlayers: PropTypes.int,
+  numPlayers: PropTypes.number,
   theme: PropTypes.string,
-  chosenChars: PropTypes.Array,
+  chosenChars: PropTypes.array,
   setChosenChars: PropTypes.func,
-  omitChars: PropTypes.Array,
+  omitChars: PropTypes.array,
   tagData: PropTypes.array,
   unique: PropTypes.bool,
-  charData: PropTypes.Array,
+  charData: PropTypes.array,
   setOnSelectionScreen: PropTypes.func,
   screenSize: PropTypes.string
 }
