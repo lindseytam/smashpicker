@@ -22,7 +22,7 @@
 .res {
     width: 80vw; 
     padding: 10px;
-    /* background-color: black; */
+    background-color: black;
 }
 
 /* Selected Character Box */
@@ -56,7 +56,7 @@
 }
   
 .selected-character-box .content img {
-    min-width: 30%;
+    width: 30%;
     height: auto;
 }
 
@@ -76,7 +76,7 @@
 }
 
 .desktop-slant {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 21%,100% 0,100% 100%,0 100%);
     clip-path: polygon(0% 21%, 100% 0, 100% 100%, 0 100%);
 }
   
@@ -184,7 +184,7 @@
 }
 
 /* TABLET CSS */
-@media screen and (min-width: 768px) and (max-width: 1366px) {
+@media screen and (min-width: 768px) and (max-width: 1645px) {
 
     .selected-character-box .content .name-box {
         height: 5em;
