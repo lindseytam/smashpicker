@@ -41,3 +41,13 @@
     justify-content: space-between;
     align-items: center;
 }
+
+@media screen and (max-width: 767px) {
+    .Error-Message {
+        width: 80%;
+    }
+
+    .Error-Contents > p {
+        width: 100%;
+    }
+}

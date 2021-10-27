@@ -22,3 +22,32 @@
     text-align: center;
     cursor: pointer;
 }
+
+/* MOBILE CSS */
+@media screen and (max-width: 767px) {
+    .column {
+        float: left;
+        width: 16%;
+        border: 1px solid black;
+        background-color: #FFEBC6;
+    }
+
+    .Char-Grid {
+        width: 100%;
+    }
+    
+}
+
+/* TABLET CSS */
+@media screen and (min-width: 768px) and (max-width: 1366px) {
+    .column {
+        width: 8%
+    }
+}
+
+/* WIDE DESKTOP CSS */
+@media screen and (min-width: 1850px) {
+    .column {
+        width: 5.5%
+    }
+}

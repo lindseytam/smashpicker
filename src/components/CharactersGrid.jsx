@@ -24,8 +24,6 @@ function CharactersGrid (props) {
     }
   }, [theme])
 
-  const data = (charData.length === 0) ? [] : Object.keys(charData[0])
-
   const clickImg = (e) => {
     // remove from omit list
     if (omitChars.includes(e.target.id)) {
@@ -38,7 +36,6 @@ function CharactersGrid (props) {
       setOmitChars(invalid)
     }
   }
-
   const renderImg = (item) => {
     const imgPath = charData[0][item].Img
     const id = charData[0][item].Name
@@ -51,17 +48,17 @@ function CharactersGrid (props) {
             onClick={clickImg}
             className="Char-Img"
             src={imgPath}
-            onLoad={() => setImagesToLoad(imagesToLoad - 1)}
+            onLoad={() => setImagesToLoad(prevValue => prevValue - 1)}
           />
         </div>
       </div>
-
     )
   }
+
   return (
     <div className="Char-Grid">
        <div className="row">
-         {data.map((item) => renderImg(item))}
+         {(charData.length === 0) ? [] : Object.keys(charData[0]).map((item) => renderImg(item))}
        </div>
     </div>
   )
