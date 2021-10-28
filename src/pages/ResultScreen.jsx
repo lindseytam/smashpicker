@@ -4,7 +4,7 @@ import { Button } from '../components/Button'
 import Generate from '../components/Generate'
 import SelectedCharacter from '../components/SelectedCharacter'
 import './../styles/ResultScreen.css'
-import logo from '../assets/loading-logo.png'
+import logo from '../assets/loading-logo-black.png'
 
 function ResultScreen (props) {
   const { numPlayers, theme, chosenChars, setChosenChars, omitChars, tagData, unique, charData, onSelectionScreen, setOnSelectionScreen, screenSize } = props
@@ -12,7 +12,7 @@ function ResultScreen (props) {
   const [imgsToLoad, setImgsToLoad] = useState(chosenChars.length - 1)
 
   useEffect(() => {
-    setImgsToLoad(chosenChars.length - 1)
+    setImgsToLoad(chosenChars.length)
   }, [chosenChars])
 
   // helper function to wait X seconds
@@ -24,7 +24,8 @@ function ResultScreen (props) {
     setShuffle(false)
   }
 
-  const onImgLoad = () => {
+  const onImgLoad = async () => {
+    await delay(100)
     setImgsToLoad(prevValue => prevValue - 1)
   }
 
@@ -59,11 +60,15 @@ function ResultScreen (props) {
         id="results-screen"
         className={(screenSize === 'mobile') ? 'container' : 'Results-Screen'}
       >
-        {imgsToLoad > 0 && screenSize !== 'mobile' && <img src={logo} className="loading-logo" alt="logo" style={{ position: 'absolute' }} />}
+        <div style={{ paddingTop: '5vh' }}>
+          {imgsToLoad > 0 && <img src={logo} className="loading-logo" alt="logo" style={{ display: 'block', margin: 'auto' }}/>}
+        </div>
+        {console.log(imgsToLoad)}
         <div
           style={{
-            // display: imgsToLoad <= 0 ? 'flex' : 'none',
-            opacity: imgsToLoad <= 0 ? 1 : 0
+            display: imgsToLoad <= 0 ? 'flex' : 'none',
+            opacity: imgsToLoad <= 0 ? 1 : 0,
+            visibility: 'visible'
           }}
           className={ (screenSize === 'mobile')
             ? 'results-container drop-shadow'
