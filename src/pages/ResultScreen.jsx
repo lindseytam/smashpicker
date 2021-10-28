@@ -66,7 +66,7 @@ function ResultScreen (props) {
         {console.log(imgsToLoad)}
         <div
           style={{
-            display: imgsToLoad <= 0 ? 'flex' : 'none',
+            display: imgsToLoad <= 0 ? (screenSize === 'mobile' ? 'inline' : 'flex') : 'none',
             opacity: imgsToLoad <= 0 ? 1 : 0,
             visibility: 'visible'
           }}
