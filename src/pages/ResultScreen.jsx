@@ -66,7 +66,6 @@ function ResultScreen (props) {
         <div style={{ paddingTop: '5vh' }}>
           {imgsToLoad > 0 && <img src={logo} className="loading-logo" alt="logo" style={{ display: 'block', margin: 'auto' }}/>}
         </div>
-        {console.log(imgsToLoad)}
         <div
           style={{
             display: imgsToLoad <= 0 ? (screenSize === 'mobile' ? 'inline' : 'flex') : 'none',
