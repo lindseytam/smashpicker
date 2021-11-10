@@ -68,11 +68,11 @@ function AppComponent () {
       setCharData={handleCharChange}
       setTagData={handleTagChange}
     />
-    <ForkMeOnGithub
+    { screenSize !== 'mobile' && <ForkMeOnGithub
         repo="https://github.com/lindseytam/smashpicker"
         colorBackground="white"
         colorOctocat="#282828"
-    />
+    /> }
     <SelectionScreen
       numPlayers={numPlayers}
       theme={theme}
