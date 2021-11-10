@@ -5,6 +5,7 @@ import ResultScreen from './pages/ResultScreen'
 import FirebaseConnector from './FirebaseConnector/FirebaseConnector'
 import './styles/Devices/Mobile.css'
 import './styles/SelectionScreen.css'
+import ForkMeOnGithub from 'fork-me-on-github'
 
 function AppComponent () {
   const [onSelectionScreen, setOnSelectionScreen] = useState(true)
@@ -63,10 +64,14 @@ function AppComponent () {
 
   return (
   <Background>
-    {/* {content} */}
     <FirebaseConnector
       setCharData={handleCharChange}
       setTagData={handleTagChange}
+    />
+    <ForkMeOnGithub
+        repo="https://github.com/lindseytam/smashpicker"
+        colorBackground="white"
+        colorOctocat="#282828"
     />
     <SelectionScreen
       numPlayers={numPlayers}
