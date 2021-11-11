@@ -15,9 +15,6 @@ function ResultScreen (props) {
     setImgsToLoad(chosenChars.length)
   }, [chosenChars])
 
-  // make window start at the top
-  document.querySelector('body').scrollTo(0, 0)
-
   // helper function to wait X seconds
   const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 

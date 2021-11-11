@@ -36,7 +36,10 @@ function SelectionScreen (props) {
   const handleScreenChange = () => {
     const includesError = chosenChars.includes(null) || chosenChars.includes(undefined)
     if (includesError) setError(true)
-    else setOnSelectionScreen(false)
+    else {
+      setOnSelectionScreen(false)
+      document.querySelector('body').scrollTo(0, 0) // make window start at the top
+    }
   }
 
   return (
