@@ -86,7 +86,7 @@ function SelectionScreen (props) {
           className="uppercase extrabold italic"
           color="golden"
           onClick={() => handleScreenChange()}
-          style={{ top: '2em' }}
+          style={ (screenSize === 'mobile') ? { top: '2em' } : (screenSize === 'tablet') ? { top: '1em' } : { top: '0em' }}
           >
           Generate
         </Button>
