@@ -1,0 +1,34 @@
+/* MOBILE CSS */
+@media screen and (max-width: 767px) {
+
+    html,body{
+        overflow-x: hidden !important;
+        overflow-y: scroll !important;
+        background-color: black;
+        margin: 0;
+        width: 100%;
+        position: fixed;
+    }
+
+    .drop-shadow {
+        box-shadow: none;
+    }
+  
+    .App-header {
+      width: 100%;
+    }
+  
+    .outline {
+      margin: 5px;
+      font-size: 3em;
+      text-align: center;
+    }
+
+    #button-bar {
+        text-align: center;
+    }
+
+    #app-background {
+        display: none;
+    }
+  }

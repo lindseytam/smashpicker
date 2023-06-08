@@ -1,16 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './styles/index.css'
-
 import AppComponent from './AppComponent'
 import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(
   <React.StrictMode>
     <header className="App-header">
-      <h1 className="outline" style={{ margin: '.2em' }}>Smash Picker</h1>
+      <h1 className="outline">Smash Picker</h1>
     </header>
-
     <AppComponent />
   </React.StrictMode>,
   document.getElementById('root')
